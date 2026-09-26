@@ -1,25 +1,25 @@
 # Two planned ZSTD benchmark runs
 
-Status: experiment plan, not launch authorization or a change to an archived run. These are **two new runs total**; the completed ZSTD trials are not counted as either run.
+Status: experiment plan, not launch authorization or a change to an archived run. These are **two new matched runs total**; the 90-minute pilots are not counted as that pair. Protocol correction on 2026-09-26: removing the project skill suite must **not** make the harness optional. The archived optional-only pilot stopped without launching a worker, so it does not test the intended harness treatment.
 
 ## Shared comparison rules
 
 - Use the same fresh ZSTD task baseline, pinned Docker image and verifier, continuous time limit, and scoring rules for both runs. Use separate source workspaces, harness configurations, runtime state, and result directories so concurrent runs cannot share or overwrite state. Preflight both configurations before launching either run.
 - Pin `gpt-5.6-terra` and **Priority** service tier for ROOT and every model worker in both runs. Priority is a controlled setting here, not a cost-saving intervention. The earlier proposal to add a Standard-speed path is **not part of either run**.
-- Both runs use the same **no-mandatory-skill-suite, optional-use harness base**. Give ROOT the task, a short contract, the harness entry points, and the native safety and review rules. Do not inject the full skill suite into either arm. Record any task-specific skill that ROOT nevertheless invokes so the comparison is transparent.
+- Both runs use the same **mandatory native-harness, no-project-skill-suite base**. Require harness setup, a concise full-task plan, and at least one genuinely launched fresh validation worker that audits the actual source/public evidence; ROOT must review its finding and rerun deterministic checks. Coding workers beyond that may be optional. Do not inject or invoke the `project-specification`/`project-topology` suite in either arm. Harness-native operational skills are allowed. Record any other task-specific skill ROOT invokes.
 - Primary outcome: binary benchmark pass. Secondary outcomes: raw partial score, **uncached tokens** (input minus cached input, plus output, summed across ROOT and all workers), elapsed time, and any unknown-usage invocations. Include retries and failed calls. Do not substitute billed dollars or all-input token count for the agreed cost metric.
 - Keep the benchmark task and test boundary unchanged. Only use public tests during development; evaluate the final frozen source with the same sealed verifier. Do not treat the published raw Terra/xhigh score distribution as a matched token-cost control: its per-run uncached-token counts are not recorded here.
 - Give both runs the same predeclared time limit. A continuous five-hour limit matches the raw-xhigh benchmark protocol most closely; if choosing a shorter pilot, label both results as pilots rather than claiming a direct win over the original xhigh run.
 
-## Run 1 — lean, optional-use harness
+## Run 1 — lean harness with required validation
 
-Give ROOT the ZSTD task and tell it the harness is available. Explain the bounded ways it can use the harness—as a coding worker, a fresh reviewer, or a test-design helper—but let ROOT decide whether and when those lanes are useful. Remove the **mandatory full skill-suite workflow** for this arm. Retain native safety, source custody, public-test, result-review, and shutdown rules; give ROOT a short task contract and the harness entry points it needs.
+Give ROOT the ZSTD task and require native harness setup plus at least one fresh validation lane. Assign that lane a bounded audit of the current implementation and public failures; it must return a discriminating test or precise defect, and ROOT must review its finding and rerun the checks. Require a short plan, not the **full project skill-suite workflow**. ROOT still decides whether additional coding or test-design lanes are useful. Retain native safety, source custody, public-test, result-review, and shutdown rules.
 
-Start with Terra/**high** ROOT and Terra/**high** model workers, all on Priority. Run deterministic build and public-test commands without commissioning a model merely to execute them. This is the **lean control** for Run 2: record which harness roles ROOT actually used and how much each cost in uncached tokens. Do not add Run 2's formal no-progress record, prescribed fresh-stall-reviewer handoff, or role-specific effort mapping.
+Start with Terra/**high** ROOT and Terra/**high** model workers, all on Priority. Run deterministic build and public-test commands without commissioning a model merely to execute them. This is the **lean harness control** for Run 2: record the mandatory validator plus any optional roles and each one's uncached tokens. Do not add Run 2's formal no-progress record, prescribed fresh-stall-reviewer handoff, or role-specific effort mapping.
 
 ## Run 2 — xhigh ROOT with targeted max specialists
 
-Use **the same lean, no-mandatory-skill-suite base as Run 1**. Run 2 adds three predeclared interventions: the no-progress record, a specific fresh-context reviewer at a genuine stall, and role-specific reasoning effort. It is a combined score/cost strategy test, not a clean ablation of each intervention.
+Use **the same mandatory-harness, no-project-skill-suite base as Run 1**, including the required validation cycle. Run 2 adds three predeclared interventions: the no-progress record, a specific fresh-context reviewer at a genuine stall, and role-specific reasoning effort. A stall reviewer may satisfy the shared validation requirement only if it also audits actual source and public evidence; otherwise launch a separate validator. This is a combined score/cost strategy test, not a clean ablation of each intervention.
 
 ### 1. Show no-progress evidence after each review
 

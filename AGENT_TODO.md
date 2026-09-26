@@ -1,5 +1,21 @@
 # Agent TODO — Local SWE-Marathon H-MH Pilot
 
+## Future ZSTD comparison protocol correction (2026-09-26)
+
+- [ ] Keep the project-specification/project-topology skill suite **out** of
+  both new comparison arms, but **force actual native harness use**. The
+  optional-only lean pilot exited after 7m54s with no worker; it is archived
+  as a failed pilot, not evidence that the harness helped or hurt.
+- [ ] Require `harness setup`, a short full-task plan, and at least one
+  launched fresh validation worker on the actual source/public-test failures.
+  Verify the worker's native process identity and result; ROOT must review the
+  finding, disposition it, rerun deterministic checks, and shut down cleanly.
+  Optional extra coding workers must not substitute for this validation cycle.
+- [ ] Apply that same minimum to both matched arms in
+  `ZSTD_TWO_RUN_EXPERIMENTS.md`; keep their task baseline, verifier, time
+  limit, Priority tier, and cost metric matched. Do not treat current
+  90-minute pilots as the formal two-run pair.
+
 This is the original checklist for the local two-task pilot. A BioFabric run
 was later authorized and cancelled without scoring; the current decision below
 supersedes its old model pairing and task order.
