@@ -1,0 +1,9 @@
+{
+  "schema": "project-task-card/v1",
+  "task": "Dedicated ROOT validation worktree only. No provider implementation is requested; ROOT uses this exact clean lane to build and test the integrated decoder through the pinned Docker bridge.",
+  "acceptance_criteria": ["Worktree starts at the current ROOT integrated commit for reproducible validation."],
+  "deliverables": ["Exact clean validation worktree"],
+  "reason_for_acceptance_and_deliverables": "Docker bridge validation requires a clean exact native worktree independent of temporary diagnostic edits.",
+  "branch": "lane/zstd-02-validation",
+  "base_commit": "0463102a75dc61c41bf6f0f501fd995770a2ff65"
+}

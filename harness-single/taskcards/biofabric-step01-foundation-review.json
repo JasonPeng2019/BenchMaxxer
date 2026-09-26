@@ -1,0 +1,16 @@
+{
+  "schema": "project-task-card/v1",
+  "branch": "lane/biofabric-step01-foundation-review",
+  "base_commit": "be1e9ff8e3f893d931614ec6f666d469d4d2e51f",
+  "task": "Perform an independent, read-only review of committed BioFabric STEP-01 network/model and graph-analysis foundation implementation. Review only these explicit target files at the supplied base commit: crates/core/src/analysis/cycle.rs, crates/core/src/analysis/graph.rs, crates/core/src/analysis/mod.rs, crates/core/src/model/annotation.rs, crates/core/src/model/link.rs, crates/core/src/model/network.rs, crates/core/src/model/selection.rs, and crates/core/src/worker.rs. First read AGENTS.md and the nearby public type definitions/tests needed to assess these files. The acceptance contract is: preserve all existing public type/trait/method signatures and manifests; keep edits within the stated allowed source paths; deterministically implement coherent Network mutation/query/index/metadata behavior, Link shadows/synonyms, selection/annotation helpers, traversal/components/neighborhood/degree/path/topological/DAG/cycle behavior, and LoopReporter semantics; preserve Java-compatible visible behavior; do not change protected tests, fixtures, goldens, Cargo manifests, CLI/I/O/layout/alignment source, or workflow artifacts. Assess correctness, regressions, hidden-edge behavior, compatibility, test strength, and verification gaps. Cite file:line evidence for every material defect, distinguish confirmed defects from questions or optional improvements, and do not make style-only/speculative findings. Do not edit, format, stage, commit, or otherwise change source; do not run Docker, any Git command, a verifier, or inspect benchmark/results/operator-only paths. You may read source/test text only. Write ONLY a truthful RESULT.json as the permitted artifact. Its summary must begin exactly with: REVIEW: SHIP | REVISE | BLOCK, followed by Findings, Contract coverage, Questions, and Verification gaps. ROOT will read your result and act on it.",
+  "acceptance_criteria": [
+    "The review is independent and read-only: no source, test, fixture, manifest, lockfile, workflow, or Git state changes are made; only RESULT.json may be written.",
+    "The review assesses the exact eight committed STEP-01 files against the fixed public-API, deterministic graph/network, shadow/self-link, metadata/index, and monitor behavior contract.",
+    "Every material finding includes file-and-line evidence, consequence, and the smallest useful correction; questions and optional improvements are separated.",
+    "The result explicitly reports SHIP, REVISE, or BLOCK and clearly identifies verification gaps rather than claiming unperformed checks."
+  ],
+  "deliverables": [
+    "A truthful RESULT.json containing the required independent-review report and no other worktree modifications."
+  ],
+  "reason_for_acceptance_and_deliverables": "STEP-01 establishes shared semantics consumed by all later implementation steps. A fresh reviewer is required to detect contract or edge-case errors before ROOT accepts the lane; restricting the reviewer to RESULT.json keeps ownership and the worker sandbox intact."
+}

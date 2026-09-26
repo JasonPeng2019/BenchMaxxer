@@ -1,0 +1,6 @@
+interface:
+  display_name: "Project Topology"
+  short_description: "Plan specified behavior without process bloat."
+  default_prompt: "Use $project-topology after $project-specification, or once product behavior and acceptance are already detailed, to create the stable PLAN.md plus STEP-* package with repository-grounded technical work, decisive evidence, a concrete per-step fast test suite, and scoped repair or re-entry that preserves valid work and retests only affected behavior; add process only for concrete needs and run the ROOT-adjudicated Bullshit Checker loop until no valid overcomplexity findings remain."
+policy:
+  allow_implicit_invocation: false

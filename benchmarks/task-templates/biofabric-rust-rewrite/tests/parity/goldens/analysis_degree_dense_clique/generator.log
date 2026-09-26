@@ -1,0 +1,12 @@
+BioFabric headless mode initialized.
+Loading: dense_clique.sif (SIF)
+Network loaded and laid out successfully.
+Network: 6 nodes, 15 links (30 with shadows)
+Running graph analysis...
+  Computing node degrees...
+    Wrote: /app/tests/parity/goldens/analysis_degree_dense_clique/output.degrees (6 nodes)
+  Analysis complete.
+  Wrote: /app/tests/parity/goldens/analysis_degree_dense_clique/output.noa
+  Wrote: /app/tests/parity/goldens/analysis_degree_dense_clique/output.eda
+  Wrote: /app/tests/parity/goldens/analysis_degree_dense_clique/output.bif
+Done. Golden files in: /app/tests/parity/goldens/analysis_degree_dense_clique

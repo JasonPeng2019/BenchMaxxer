@@ -1,0 +1,7 @@
+{
+  "schema": "project-task-card/v1",
+  "task": "Resume only src/zstd_sequences.inc and src/zstd_dict.inc for a focused RFC 8878 audit/repair. Preserve passing predefined sequence behavior. Correct custom/RLE/repeat FSE mode consumption, sequence bitstream/state semantics, repeat offsets, and trained formatted-dictionary preloaded entropy/offset/history state where needed. Do not edit entropy, shared headers, dispatcher, Makefile, harness, tests, samples, specs, or other files. Use the existing entropy helper API; commit owned files if possible and write RESULT.json.",
+  "acceptance_criteria": ["Only the two owned fragments change.", "Custom/RLE/repeat sequences and trained dictionary initialization remain bounded and RFC-directed without regressing predefined sequence behavior."],
+  "deliverables": ["Repaired sequence and dictionary fragments", "RESULT.json with actual checks and integration notes"],
+  "reason_for_acceptance_and_deliverables": "This is an isolated audit of remaining required feature classes after the initial integration." 
+}

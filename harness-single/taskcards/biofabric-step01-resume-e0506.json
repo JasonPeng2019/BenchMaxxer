@@ -1,0 +1,15 @@
+{
+  "schema": "project-task-card/v1",
+  "task": "Resume the existing STEP-01 BioFabric foundation lane. Preserve all valid current edits and staged state; do not reset, discard, or reimplement unrelated work. ROOT's authoritative Docker-bridge command `cargo test -p biofabric-core --lib` failed with rustc E0506 in crates/core/src/model/network.rs: `detect_bipartite` iterates `self.node_ids()` while assigning `self.metadata.is_bipartite`, so the immutable borrow remains live. Repair that narrow ownership/borrowing defect in the existing implementation, keeping the public API and intended deterministic behavior unchanged. Inspect nearby code for the same immediate borrow pattern only if required to make the focused library suite compile. Own only crates/core/src/model/network.rs for this resume. Do not use Docker, Git operations, verifier/benchmark paths, or protected tests/fixtures. Run rustfmt and git diff --check if available, leave the repair in place, and write a truthful updated RESULT.json. ROOT will repeat the required bridge test after the provider exits.",
+  "acceptance_criteria": [
+    "The E0506 compile error in Network::detect_bipartite is resolved without changing public signatures or unrelated behavior.",
+    "Edits are limited to crates/core/src/model/network.rs and retain all valid preceding STEP-01 changes.",
+    "No protected test, fixture, manifest, lockfile, or harness artifact is modified by the worker.",
+    "RESULT.json truthfully records the repair and any checks actually run."
+  ],
+  "deliverables": [
+    "A minimal compile-safe repair to crates/core/src/model/network.rs.",
+    "A truthful updated RESULT.json."
+  ],
+  "reason_for_acceptance_and_deliverables": "The failed bridge result identifies one narrow Rust borrowing error. Resuming the same lane preserves the accepted discovery and source edits while repairing only the invalidated compilation evidence."
+}

@@ -1,0 +1,15 @@
+{
+  "schema": "project-task-card/v1",
+  "branch": "lane/biofabric-step03-final-validation-review",
+  "base_commit": "fca3e4fc87393c0d8a3cea161c1166c8da0d8180",
+  "task": "Perform a fresh, read-only independent validation review of BioFabric STEP-03 commit fca3e4fc87393c0d8a3cea161c1166c8da0d8180. Do not edit, stage, commit, delete, or create source/test/manifests/workflow artifacts; do not invoke Docker, a verifier, or Git. Inspect exactly the implemented layout repair and directly relevant nearby types/tests: crates/core/src/layout/build_data.rs, cluster.rs, control_top.rs, default.rs, hierarchy.rs, link_group.rs, set.rs, and similarity.rs. The intended contract is: fixed-link-order layout has unique contiguous first-seen node rows; TargetOrder::GrayCode uses arbitrary-length binary-reflected Gray-code ordering with control 0 as least-significant input bit; valid LayoutParams.start_node anchors cluster/control-top/set layouts without duplicates; cancellation propagates as LayoutError::Cancelled from material nested scans in link-group building, default edge layout, similarity, hierarchy annotations, and control-top; existing public APIs remain compatible. Assess both semantic correctness and regressions, especially sort/key ordering, all valid input cardinalities, cancellation timing, partial-results behavior, and overly broad matching. The ROOT bridge has already compiled this commit and run cargo test -p biofabric-core --lib: 40 passed and only three known, deferred alignment todo! tests failed. Do not count those specified alignment stubs as a STEP-03 defect. Produce a truthful RESULT.json whose summary begins exactly `REVIEW: SHIP`, `REVIEW: REVISE`, or `REVIEW: BLOCK`, and whose evidence contains all four headings exactly: `Findings:`, `Contract coverage:`, `Questions:`, and `Verification gaps:`. Under each confirmed material finding cite file:line, impact, and smallest correction; separate questions/optional improvements. ROOT will decide acceptance solely after reviewing your report.",
+  "acceptance_criteria": [
+    "The review is independent and strictly read-only.",
+    "The report explicitly evaluates every named layout contract and distinguishes confirmed defects from uncertainty.",
+    "The RESULT.json uses the required REVIEW decision and four headings with file/line evidence for material findings."
+  ],
+  "deliverables": [
+    "A truthful, detailed read-only REVIEW report in RESULT.json."
+  ],
+  "reason_for_acceptance_and_deliverables": "This broad correctness and cancellation repair passed its focused bridge suite after one defect correction, so it requires a fresh independent critique before ROOT can accept or integrate it."
+}

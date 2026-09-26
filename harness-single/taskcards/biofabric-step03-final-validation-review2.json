@@ -1,0 +1,15 @@
+{
+  "schema": "project-task-card/v1",
+  "branch": "lane/biofabric-step03-final-validation-review2",
+  "base_commit": "2dcfede7fe145d528eb1d0c9945df350a7446277",
+  "task": "Perform a fresh, read-only independent validation review of BioFabric STEP-03 commit 2dcfede7fe145d528eb1d0c9945df350a7446277. Do not edit, stage, commit, delete, or create source/test/manifests/workflow artifacts; do not invoke Docker, a verifier, or Git. Inspect the current implementation and directly relevant nearby types/tests in crates/core/src/layout/build_data.rs, cluster.rs, control_top.rs, default.rs, hierarchy.rs, link_group.rs, set.rs, and similarity.rs. The contract remains: fixed-link-order rows unique/contiguous/first-seen; TargetOrder::GrayCode uses arbitrary-length binary-reflected ordering with control 0 least-significant; valid start_node anchors cluster/control-top/set orders; all material nested scans propagate LayoutError::Cancelled without a completed partial result; public APIs remain compatible. Specifically confirm the prior finding is repaired: configured relation-group matching must be exact rather than arbitrary prefix/suffix matching, and DefaultEdgeLayout must observe cancellation in ordinal/group lookup, automatic group collection, and both annotation scans after placement. The ROOT bridge compiled this commit and ran cargo test -p biofabric-core --lib: 43 passed; only the three known deferred alignment todo! stubs failed. Do not report those specified alignment stubs as STEP-03 defects. Produce truthful RESULT.json whose summary begins exactly `REVIEW: SHIP`, `REVIEW: REVISE`, or `REVIEW: BLOCK`, and whose evidence has all four exact headings `Findings:`, `Contract coverage:`, `Questions:`, and `Verification gaps:`. Cite file:line, consequence, and smallest correction for each confirmed material finding; distinguish questions/optional improvements. ROOT will decide acceptance only after reviewing your report.",
+  "acceptance_criteria": [
+    "The review is independent and read-only.",
+    "The report verifies both previous default-edge findings and the stated wider layout contract.",
+    "The RESULT.json includes the required REVIEW decision and four headings with file/line evidence for material findings."
+  ],
+  "deliverables": [
+    "A truthful, detailed independent review in RESULT.json."
+  ],
+  "reason_for_acceptance_and_deliverables": "The first independent review found two material default-edge issues. Their repair passed pinned bridge tests and requires a fresh independent validation before acceptance."
+}

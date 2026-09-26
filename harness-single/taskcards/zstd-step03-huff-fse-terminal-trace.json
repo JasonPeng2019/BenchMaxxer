@@ -1,0 +1,14 @@
+{
+  "schema": "project-task-card/v1",
+  "task": "Resume the existing isolated STEP-03 lane from the proven public 3/6 baseline. The wider 16-bit candidate exposed the actual next failure but did not improve output: audio's FSE-compressed Huffman weight stream reaches huff_decode_fse_weights and produces an invalid Kraft total. Trace that visible stream symbol-by-symbol under RFC 8878 §4.2.1.2: initial state order, alternating state updates, overflow zero-padding significance, and final-state emission order. Compare every cursor/state/weight with the code. Preserve proven reverse FSE write-order reconstruction for ordinary FSE sequences and forward table descriptions. Implement only a minimal correction if this trace establishes it; otherwise leave source unchanged with an exact blocker. Do not touch dictionaries/protected files. Do not run Docker/Git/harness CLI/libzstd/another decoder/sealed materials.",
+  "acceptance_criteria": [
+    "Provides an audio FSE-weight terminal trace sufficient to validate or refute current overflow/final-state logic.",
+    "Does not regress the repetitive one-sequence FSE bit-consumption invariant.",
+    "Any source change is minimal, RFC-grounded, and truthfully recorded in RESULT.json."
+  ],
+  "deliverables": [
+    "RESULT.json with concrete terminal trace",
+    "Only if justified, focused src/zstd_decompress.c correction"
+  ],
+  "reason_for_acceptance_and_deliverables": "The descriptor-range gate is no longer the only uncertainty; a sample-backed terminal FSE trace is now required to resolve the invalid Huffman Kraft total."
+}

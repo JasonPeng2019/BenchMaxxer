@@ -1,0 +1,7 @@
+{
+  "schema": "project-task-card/v1",
+  "task": "Resume the same isolated STEP-03 lane from the proven 3/6 baseline. The previous complete audio trace proves FSE-compressed-weight terminal handling correct but yields a non-Kraft histogram {0:76,1:17,2:5,3:2,4:8,13:5,14:2}. Trace the earlier FSE table description and construction against RFC 8878 §4.1/§4.1.1: normalized counts, symbol spreading, state-table baseline/Num_Bits construction, and at least the transitions that emit weights 13/14. Locate a concrete discrepancy, if any, before changing source. Preserve forward table-description LSB parsing, reverse write-order reconstruction, and the proven terminal order. Implement only a directly proven minimal correction; otherwise no source change and a precise blocker. No protected files/dictionaries/Docker/Git/harness CLI/libzstd/another decoder/sealed materials.",
+  "acceptance_criteria": ["Produces source- and RFC-grounded construction/transition trace for audio's weight FSE table.", "Any correction preserves the repetitive FSE invariant and existing 3 passing samples.", "Only allowed source edits and truthful RESULT.json."],
+  "deliverables": ["RESULT.json trace", "Only if justified, focused src/zstd_decompress.c correction"],
+  "reason_for_acceptance_and_deliverables": "Terminal semantics have been eliminated by a complete trace; the next discriminating evidence must inspect the FSE decoding table that produces the invalid weight distribution."
+}

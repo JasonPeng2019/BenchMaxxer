@@ -1,0 +1,8 @@
+BioFabric headless mode initialized.
+Loading: isolated_nodes.sif (SIF)
+Network loaded and laid out successfully.
+Network: 6 nodes, 2 links (4 with shadows)
+  Wrote: /app/tests/parity/goldens/isolated_nodes_default/output.noa
+  Wrote: /app/tests/parity/goldens/isolated_nodes_default/output.eda
+  Wrote: /app/tests/parity/goldens/isolated_nodes_default/output.bif
+Done. Golden files in: /app/tests/parity/goldens/isolated_nodes_default

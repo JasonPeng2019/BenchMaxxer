@@ -1,0 +1,10 @@
+BioFabric headless mode initialized.
+Loading: dag_diamond.sif (SIF)
+Network loaded and laid out successfully.
+Network: 4 nodes, 4 links (8 with shadows)
+Applying --no-shadows: toggling shadow display OFF...
+  Shadow toggle rebuild complete. Links now: 4 (no shadows)
+  Wrote: /app/tests/parity/goldens/dag_diamond_noshadow/output.noa
+  Wrote: /app/tests/parity/goldens/dag_diamond_noshadow/output.eda
+  Wrote: /app/tests/parity/goldens/dag_diamond_noshadow/output.bif
+Done. Golden files in: /app/tests/parity/goldens/dag_diamond_noshadow

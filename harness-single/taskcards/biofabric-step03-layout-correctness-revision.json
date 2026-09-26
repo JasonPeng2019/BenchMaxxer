@@ -1,0 +1,19 @@
+{
+  "schema": "project-task-card/v1",
+  "branch": "lane/biofabric-step03-core-layouts",
+  "base_commit": "92a5899ca989ee89fa7cedc40c8752b7c9fc9ff4",
+  "task": "Resume STEP-03 only to repair the confirmed correctness defects in the existing committed layout work. Retain valid layout implementation and edit only crates/core/src/layout/**. Do not edit public types/signatures, Cargo manifests/lockfile, model/I-O/alignment/CLI source, protected tests, fixtures, goldens, workflow files, or paths outside the layout tree. Do not use Docker, Git add/commit, a verifier, benchmark/results paths, or operator-only runtime paths. ROOT's pinned bridge now compiles the layout candidate, but root review found these material defects: (1) NodeSimilarityLayout::layout_nodes in similarity.rs panics on an empty network in Resort mode by indexing previous[0], and Clustered mode discards a valid LayoutParams.start_node by converting the order to a HashSet and seeding lexically; return a valid empty ordering and preserve an existing explicit start anchor in both modes. (2) NodeClusterLayout's nested cluster ordering currently converts a cancellation error into a lexical fallback; propagate cancellation rather than silently producing a partial layout. NodeClusterEdgeLayout::rearrange_between renumbers links/columns after DefaultEdgeLayout has installed link annotations but leaves those annotation ranges stale; rebuild/remap relevant regular and shadow annotation ranges and any dependent layout counts/spans so every annotation refers to the post-reorder columns. (3) layout_from_fixed_link_order in default.rs reports column_count as link count instead of the represented coordinate span; it must correctly represent sparse/non-zero imported column positions and keep its no-shadow count/span semantics consistent. Audit the current owned layout diff for the same class of empty-input, parameter, cancellation, remapping, and coordinate-count defect, but do not expand into speculative redesign. Add narrow owned source-module tests that demonstrate the four named contracts (empty similarity, clustered start anchor, cancellation/Between annotation consistency, and sparse fixed-link columns) and preserve existing tests. Attempt the strongest non-Docker local check allowed and record exact commands/results. Leave all allowed edits and a truthful RESULT.json; ROOT will run bridge checks after exit.",
+  "acceptance_criteria": [
+    "Every edit remains under crates/core/src/layout/**, with any tests inside owned source modules; no fixed public signature, manifest/lockfile, protected test, fixture, golden, or unrelated source change occurs.",
+    "Similarity layouts return an empty vector for an empty network and honor a valid LayoutParams.start_node in both supported modes without panicking or losing deterministic tie-breaking.",
+    "Cluster layout propagates cancellation, and Between placement leaves columns, shadow/no-shadow spans/counts, and link annotations internally consistent after reordering.",
+    "Fixed-link-order layouts report actual coordinate span/counts for sparse columns while preserving node/link ordering and no-shadow coordinates.",
+    "Focused source-module tests protect each repaired observable contract, and RESULT.json truthfully records changed paths, checks actually run, remaining uncertainty, and blockers."
+  ],
+  "deliverables": [
+    "A focused correctness repair under crates/core/src/layout/**.",
+    "Narrow source-module tests covering the named layout edge cases.",
+    "A truthful RESULT.json in the lane worktree."
+  ],
+  "reason_for_acceptance_and_deliverables": "The core layout candidate compiles but has concrete empty-input, parameter, cancellation, annotation, and coordinate-state defects. The existing layout owner can repair them without reopening independent I/O or alignment implementation."
+}

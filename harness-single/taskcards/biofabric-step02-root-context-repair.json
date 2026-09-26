@@ -1,0 +1,16 @@
+{
+  "schema": "project-task-card/v1",
+  "branch": "lane/biofabric-step02-network-interchange",
+  "base_commit": "e4636ea76a4e60da51bf74870fa23e6eb256d791",
+  "task": "Resume the rejected BioFabric STEP-02 lane in place. Preserve all existing uncommitted XML/GW repairs exactly and make the smallest correction limited to crates/core/src/io/xml.rs and its existing private in-module tests. ROOT bridge compilation passed the current code, but static review found the modeled XML placement repair is incomplete: after comments/declarations are handled, parser state does not require <BioFabric> to have opened before accepting modeled content. For example `<sessionState layout=\"false\" />` before a later empty `<BioFabric>...</BioFabric>` can be accepted. Establish a single, reliable root-context invariant so every non-comment/non-declaration/non-whitespace XML content item, including session leaves, nodes/links, annotations, linkGroups, and plugInDataSets, is rejected outside the one open BioFabric root. Do not accidentally reject existing supported XML declarations or comments outside the root, and continue to reject content after root close. Add focused regression coverage for representative modeled content before root and preserved declaration/comment behavior. Do not modify public types, manifests, lockfiles, fixtures, external tests, other source paths, Git metadata, or workflow artifacts. Do not invoke Docker, a verifier, or Git. Run focused non-Docker checks available to the worker and write a truthful RESULT.json with exact changed paths and limitations. ROOT will rerun the pinned bridge and fresh review.",
+  "acceptance_criteria": [
+    "Only xml.rs and its existing in-module tests are newly modified; all existing XML/GW work remains intact.",
+    "Every modeled/content element requires an open BioFabric root, while legal XML declarations/comments outside it remain accepted and post-root content remains rejected.",
+    "Focused regressions demonstrate the root-context boundary and RESULT.json truthfully reports evidence."
+  ],
+  "deliverables": [
+    "A minimal XML root-context parser fix and regression tests.",
+    "A truthful RESULT.json."
+  ],
+  "reason_for_acceptance_and_deliverables": "ROOT static review found one concrete remaining modeled XML placement hole after the broader XML/GW contract repair."
+}

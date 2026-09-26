@@ -1,0 +1,17 @@
+{
+  "schema": "project-task-card/v1",
+  "task": "Resume BioFabric STEP-01 only to correct the three confirmed defects from the independent read-only review. You own only crates/core/src/model/network.rs and narrowly scoped source-module tests in that same file unless an already-owned STEP-01 source file is strictly necessary. Preserve every existing public type, trait, and method signature, Cargo manifest/lockfile, all protected tests/fixtures/goldens, and every unrelated source path. Do not use Docker, Git add/commit, a verifier, benchmark/results paths, or operator-only runtime paths. First inspect the current implementation and its visible model call sites. Then: (1) enforce the documented invariant that lone_nodes() contains every current node with no incident links for ordinary add_node and add_node_by_id, without incorrectly re-adding nodes that already have incident links; (2) make the existing public links_mut escape hatch safe through a compatible derived-state reconciliation path: after callers mutate the raw vector and use the existing reconciliation mechanism, adjacency, lone-node membership, directed metadata, and bipartite/DAG cache state must reflect current links; do not change the links_mut signature or invent a new public API; (3) construct subnetworks with metadata derived from retained links/nodes rather than stale parent graph facts, while preserving only descriptive metadata that is demonstrably safe to copy. Use the visible API/callers to choose the smallest compatible design. Add focused unit tests in model/network.rs covering an ordinary isolated node, raw link-vector mutation followed by the existing reconciliation path, and subnetwork extraction that removes a directed/cyclic structure. Run only safe local checks available in the worker sandbox if they actually work, and write a truthful RESULT.json when finished. ROOT will run required Docker-bridge checks after exit.",
+  "acceptance_criteria": [
+    "All edits remain confined to crates/core/src/model/network.rs, with any new tests confined to that source module.",
+    "add_node and add_node_by_id preserve the documented lone_nodes invariant for current edgeless nodes without corrupting connected-node membership.",
+    "The existing links_mut API remains signature-compatible and has a documented/used compatible reconciliation route that restores adjacency, lone-node state, directed metadata, and invalidates/recomputes graph caches after raw mutation.",
+    "extract_subnetwork does not expose stale parent-derived directed, bipartite, or DAG metadata when its retained graph differs from the parent.",
+    "Focused unit tests cover the three repaired observable contracts and RESULT.json truthfully reports paths and actual checks."
+  ],
+  "deliverables": [
+    "Corrected network foundation implementation limited to the stated source file.",
+    "Focused network-module behavior tests for the corrected invariants.",
+    "A truthful RESULT.json in the lane worktree."
+  ],
+  "reason_for_acceptance_and_deliverables": "The prior lane completion was rejected only for three confirmed Network derived-state invariants. A narrow same-lane resume preserves its established ownership and commit history while correcting those shared semantics before downstream I/O, layout, alignment, and CLI work begins."
+}

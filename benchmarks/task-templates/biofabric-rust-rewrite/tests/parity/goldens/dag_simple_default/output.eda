@@ -1,0 +1,11 @@
+Link Column
+Root (pd) Child1 = 0
+Child1 (pd) Leaf1 = 1
+Child1 (pd) Leaf2 = 2
+Root shdw(pd) Child1 = 3
+Root (pd) Child2 = 4
+Child1 shdw(pd) Leaf1 = 5
+Child1 shdw(pd) Leaf2 = 6
+Root shdw(pd) Child2 = 7
+Child2 (pd) Leaf3 = 8
+Child2 shdw(pd) Leaf3 = 9

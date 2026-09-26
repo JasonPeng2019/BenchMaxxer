@@ -1,0 +1,16 @@
+{
+  "schema": "project-task-card/v1",
+  "branch": "lane/biofabric-step02-final-review",
+  "base_commit": "5bf21d8cd993abe6165d4288a079eb45533d6214",
+  "task": "Perform a fresh, independent, read-only final review of the committed BioFabric STEP-02 network interchange implementation at the supplied commit. Review only these exact target files: crates/core/src/io/align.rs, annotation.rs, attribute.rs, factory.rs, gw.rs, json.rs, order.rs, sif.rs, and xml.rs. Read AGENTS.md, the fixed public model/parser/writer types these files consume, and nearby visible source tests necessary to assess their contracts. The acceptance contract is: fixed public APIs, manifests, fixtures, and lockfile remain unchanged; supported SIF, GW, JSON, alignment, order, attribute, annotation, and XML/session data preserve model semantics and deterministic output; malformed or unsupported input reaches the existing ParseError boundary without partial-success state; FabricFactory routes only supported extensions; metadata, scores, raw plugin/layout/display/session state survive appropriate serialization; and BIF XML follows the established `annot` grammar with optional color and preserves normal/shadow drain-zone state, including empty containers. Check round-trip loss, ordering nondeterminism, accidental alternate external format contracts, malformed-input acceptance, and missing error paths. Cite file:line evidence, consequence, and smallest correction for every confirmed defect; distinguish questions/optional improvements. Do not write source/tests, format, stage, commit, use Docker, run Git, invoke a verifier, or inspect benchmark/results/operator-only paths. You may read source/test text only. Write ONLY RESULT.json. This is a mandatory detailed report: its summary MUST start exactly `REVIEW: SHIP`, `REVIEW: REVISE`, or `REVIEW: BLOCK`; its evidence array MUST contain, verbatim as separate entries, headings `Findings:`, `Contract coverage:`, `Questions:`, and `Verification gaps:` followed by substantive content. A generic outcome without this report is a failed deliverable. ROOT will use your report to accept/reject the source lane.",
+  "acceptance_criteria": [
+    "The review makes no source, test, fixture, manifest, lockfile, workflow, or Git changes; only RESULT.json may be written.",
+    "The report independently evaluates exactly the committed target I/O files against fixed API, routing, parser/error, deterministic serialization, session preservation, and BIF annotation/drain-zone contracts.",
+    "Every material finding gives file:line evidence, consequence, and smallest correction; questions and optional improvements are clearly separated.",
+    "RESULT.json begins with REVIEW: SHIP|REVISE|BLOCK and contains substantive Findings, Contract coverage, Questions, and Verification gaps entries in evidence."
+  ],
+  "deliverables": [
+    "A truthful, detailed independent review report in RESULT.json and no other worktree modifications."
+  ],
+  "reason_for_acceptance_and_deliverables": "The I/O custody commit spans multiple external formats and session state. An independent report is required before ROOT accepts it for downstream alignment, parity, and CLI consumers."
+}

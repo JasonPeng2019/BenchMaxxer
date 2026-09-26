@@ -1,0 +1,38 @@
+{
+    "results": {
+        "tool": {
+            "name": "pytest",
+            "version": "8.4.1"
+        },
+        "summary": {
+            "tests": 2,
+            "passed": 2,
+            "failed": 0,
+            "skipped": 0,
+            "pending": 0,
+            "other": 0,
+            "start": 1790056301.2012806,
+            "stop": 1790056301.6147032
+        },
+        "tests": [
+            {
+                "name": "test_outputs.py::test_candidate_build_artifact_exists",
+                "status": "passed",
+                "duration": 0.0008494999999584252,
+                "start": 1790056301.5194697,
+                "stop": 1790056301.521343,
+                "retries": 0,
+                "file_path": "test_outputs.py"
+            },
+            {
+                "name": "test_outputs.py::test_alignments_reach_targets",
+                "status": "passed",
+                "duration": 0.09155780000014602,
+                "start": 1790056301.5221853,
+                "stop": 1790056301.6144617,
+                "retries": 0,
+                "file_path": "test_outputs.py"
+            }
+        ]
+    }
+}

@@ -1,0 +1,16 @@
+{
+  "schema": "project-task-card/v1",
+  "task": "Starting from integrated main with STEP-01 and STEP-02, extend only src/zstd_decompress.c (and strictly necessary private helpers under src/) to decode RFC 8878 compressed blocks without dictionaries: literals and sequences, repeat offsets including LL=0, overlapping matches, and bounded failure handling. Parse raw, RLE, new-Huffman, and treeless literal sections, retaining a validated Huffman table only when permitted. Parse zero/nonzero sequence headers and predefined, RLE, custom, and repeat FSE modes. Validate all payload/table/bitstream boundaries, sequence lengths, offsets, and exact literal accounting. Use byte-at-a-time output copying so overlap is correct and prior output provides history. Do not implement dictionary parsing or dictionary-backed state; leave a clear history seam for STEP-04. Do not edit src/Makefile, src/harness.c, public tests/samples, rfc8878.txt, the CLI, harness files, Git metadata, or planning/checkpoint files. Do not inspect or use solution, verifier, hidden, encrypted assets, network, package installation, libzstd, copied decoder code, dynamic loading, subprocess decompression, or another decompressor. Use existing STEP-02 FSE/Huffman helpers; repair them only when a concrete direct consumer exposes a specific RFC defect. Do not use Docker, host Git operations, or the native harness CLI. Leave a truthful RESULT.json and cleanup-proven terminal state for ROOT review.",
+  "acceptance_criteria": [
+    "Bounded literal-section parsing supports raw, RLE, new-Huffman, and treeless forms, including one/four-stream Huffman output and valid retained-table state.",
+    "Sequence execution supports predefined, RLE, custom, and repeat FSE modes; repeat offsets including LL=0, literals/matches, overlap, and invalid-state/bounds rejection follow RFC 8878.",
+    "Only allowed decoder sources change and RESULT.json truthfully identifies exact local evidence and limitations."
+  ],
+  "deliverables": [
+    "Bounded literal-section parsing for raw, RLE, new-Huffman, and treeless forms, including one/four-stream Huffman output and correct retained-table state.",
+    "Bounded sequence-section parsing and execution for predefined, RLE, custom, and repeat FSE modes; validate stream/table state and extra bits.",
+    "Correct repeat-offset updates including LL=0 behavior, match/literal accounting, invalid-offset rejection, and byte-at-a-time overlapping copies using prior output as history.",
+    "Focused disposable local evidence or a concise explanation of each vector/result in RESULT.json; no claim that unrun external checks passed."
+  ],
+  "reason_for_acceptance_and_deliverables": "This is the serial integration step that consumes accepted entropy primitives to make non-dictionary compressed public samples meaningful while preserving dictionaries for STEP-04."
+}

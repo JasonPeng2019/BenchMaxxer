@@ -1,0 +1,13 @@
+# ROOT-only defaults for future H-H runs. Worker lanes receive their own
+# explicit high-effort launch configuration from the harness.
+model = "gpt-5.6-terra"
+model_reasoning_effort = "high"
+service_tier = "priority"
+approval_policy = "never"
+# The approved reportable collector launch overrides this to ROOT-only
+# danger-full-access so Git can create native harness worktrees.
+sandbox_mode = "workspace-write"
+
+[features]
+hooks = true
+goals = true

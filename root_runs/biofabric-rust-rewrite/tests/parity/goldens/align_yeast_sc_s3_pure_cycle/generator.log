@@ -1,0 +1,25 @@
+BioFabric headless mode initialized.
+Loading: Yeast2KReduced.sif (SIF)
+Network loaded and laid out successfully.
+Network: 2379 nodes, 16063 links (32126 with shadows)
+Running alignment pipeline...
+  Graph1: 32126 links, 0 loners
+  Graph2: 154298 links, 0 loners
+  Alignment: 2379 mapped nodes
+  Perfect alignment: 2379 mapped nodes
+  View type: CYCLE
+  Merged: 166342 links, 0 loners
+  Scores computed: 7 metrics
+    networkAlignment.edgeCoverage = 0.625101164166096
+    networkAlignment.symmetricSubstructureScore = 0.5540473431551067
+    networkAlignment.inducedConservedStructure = 0.8297661350301628
+    networkAlignment.nodeCorrectness = NaN
+    networkAlignment.nodeGroupSimilarity = 0.6442133364434202
+    networkAlignment.linkGroupSimilarity = 0.46369874508124287
+    networkAlignment.jaccardSimilarity = 0.06914775946512322
+  Alignment network built: 5831 nodes, 83171 links
+  Wrote: /app/tests/parity/goldens/align_yeast_sc_s3_pure_cycle/output.noa
+  Wrote: /app/tests/parity/goldens/align_yeast_sc_s3_pure_cycle/output.eda
+  Wrote: /app/tests/parity/goldens/align_yeast_sc_s3_pure_cycle/output.bif
+  Wrote: /app/tests/parity/goldens/align_yeast_sc_s3_pure_cycle/output.scores
+Done. Golden files in: /app/tests/parity/goldens/align_yeast_sc_s3_pure_cycle

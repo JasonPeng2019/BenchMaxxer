@@ -1,0 +1,25 @@
+BioFabric headless mode initialized.
+Loading: Yeast2KReduced.sif (SIF)
+Network loaded and laid out successfully.
+Network: 2379 nodes, 16063 links (32126 with shadows)
+Running alignment pipeline...
+  Graph1: 32126 links, 0 loners
+  Graph2: 154298 links, 0 loners
+  Alignment: 2379 mapped nodes
+  Perfect alignment: 2379 mapped nodes
+  View type: GROUP
+  Merged: 164298 links, 0 loners
+  Scores computed: 7 metrics
+    networkAlignment.edgeCoverage = 0.6887256427815477
+    networkAlignment.symmetricSubstructureScore = 0.24829428135380197
+    networkAlignment.inducedConservedStructure = 0.27967944180402465
+    networkAlignment.nodeCorrectness = 1.0
+    networkAlignment.nodeGroupSimilarity = 1.0
+    networkAlignment.linkGroupSimilarity = 1.0
+    networkAlignment.jaccardSimilarity = 1.0
+  Alignment network built: 5831 nodes, 82149 links
+  Wrote: /app/tests/parity/goldens/align_yeast_sc_perfect/output.noa
+  Wrote: /app/tests/parity/goldens/align_yeast_sc_perfect/output.eda
+  Wrote: /app/tests/parity/goldens/align_yeast_sc_perfect/output.bif
+  Wrote: /app/tests/parity/goldens/align_yeast_sc_perfect/output.scores
+Done. Golden files in: /app/tests/parity/goldens/align_yeast_sc_perfect

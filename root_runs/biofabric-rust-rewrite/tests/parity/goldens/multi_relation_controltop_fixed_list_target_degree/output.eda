@@ -1,0 +1,13 @@
+Link Column
+A (pp) B = 0
+A (pd) C = 1
+A (gi) E = 2
+A shdw(pp) B = 3
+B (pp) C = 4
+A shdw(pd) C = 5
+B shdw(pp) C = 6
+C (pd) D = 7
+C shdw(pd) D = 8
+D (pp) E = 9
+A shdw(gi) E = 10
+D shdw(pp) E = 11

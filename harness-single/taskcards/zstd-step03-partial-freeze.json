@@ -1,0 +1,7 @@
+{
+  "schema": "project-task-card/v1",
+  "task": "Prepare the existing STEP-03 lane for the operator-authorized explicit partial best-effort submission. Do not claim completion and do not pursue speculative entropy changes. Review the accumulated allowed src/zstd_decompress.c diff for bounds safety, prohibited dependencies, and obvious regressions relative to STEP-02; retain the source state that ROOT's exact bridge has demonstrated as 3/6 (simple.zst, img.png.zst, repetitive.zst passing). Remove or correct only a concrete safety/compile defect established by source review; otherwise leave behavior unchanged. Write truthful RESULT.json stating this is a partial decoder and enumerating remaining public failures. Do not run Docker/Git/harness CLI/libzstd/another decoder/sealed materials and do not edit protected files.",
+  "acceptance_criteria": ["Allowed source diff is reviewed for basic bounds/dependency safety and contains no protected edits.", "RESULT.json explicitly identifies the result as partial and does not assert full decoder behavior.", "No speculative behavior change is made without a concrete source defect."],
+  "deliverables": ["Truthful partial-freeze RESULT.json", "Only if concretely needed, focused src/zstd_decompress.c safety correction"],
+  "reason_for_acceptance_and_deliverables": "The operator explicitly authorizes retaining verified partial improvement when full completion is not reached; a final lane review prevents silently discarding the 3/6 implementation while preserving accurate scope."
+}

@@ -1,0 +1,8 @@
+BioFabric headless mode initialized.
+Loading: dag_diamond.sif (SIF)
+Network loaded and laid out successfully.
+Network: 4 nodes, 4 links (8 with shadows)
+  Wrote: /app/tests/parity/goldens/dag_diamond_default/output.noa
+  Wrote: /app/tests/parity/goldens/dag_diamond_default/output.eda
+  Wrote: /app/tests/parity/goldens/dag_diamond_default/output.bif
+Done. Golden files in: /app/tests/parity/goldens/dag_diamond_default

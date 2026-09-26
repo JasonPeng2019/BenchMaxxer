@@ -1,0 +1,9 @@
+{
+  "schema": "project-task-card/v1",
+  "task": "Implement only src/zstd_frame.inc for the RFC 8878 decoder. Consume the committed src/zstd_internal.h contract. Implement normal/skippable frame parsing, normal header/content size validation, block headers, raw/RLE blocks, compressed-block dispatch to zstd_decode_compressed, concatenation, and xxhash checksum verification. Do not edit Makefile, harness.c, zstd_decompress.c, zstd_internal.h, specs, or any other path. Do not call/copy libzstd. Commit your owned file and write RESULT.json per harness.",
+  "acceptance_criteria": ["src/zstd_frame.inc is the sole product edit and compiles when included by the dispatcher contract.", "Its bounded parsing handles all requested frame/block framing behaviors and fails malformed input safely."],
+  "deliverables": ["Committed src/zstd_frame.inc", "RESULT.json with commit, checks, and integration notes"],
+  "reason_for_acceptance_and_deliverables": "The isolated fragment is the frame-domain implementation consumed by ROOT integration.",
+  "branch": "lane/zstd-02-frame",
+  "base_commit": "d24e656b361bd8297159c0ecbb42c50c227f6924"
+}

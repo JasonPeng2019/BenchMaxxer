@@ -1,0 +1,8 @@
+BioFabric headless mode initialized.
+Loading: self_loop.sif (SIF)
+Network loaded and laid out successfully.
+Network: 3 nodes, 3 links (5 with shadows)
+  Wrote: /app/tests/parity/goldens/self_loop_default/output.noa
+  Wrote: /app/tests/parity/goldens/self_loop_default/output.eda
+  Wrote: /app/tests/parity/goldens/self_loop_default/output.bif
+Done. Golden files in: /app/tests/parity/goldens/self_loop_default

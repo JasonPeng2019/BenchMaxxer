@@ -1,0 +1,10 @@
+BioFabric headless mode initialized.
+Loading: multi_relation.sif (SIF)
+Network loaded and laid out successfully.
+Network: 5 nodes, 6 links (12 with shadows)
+Applying layout: ControlTop...
+  Layout applied. Network: 5 nodes, 6 links
+  Wrote: /app/tests/parity/goldens/multi_relation_controltop_degree_only_target_degree/output.noa
+  Wrote: /app/tests/parity/goldens/multi_relation_controltop_degree_only_target_degree/output.eda
+  Wrote: /app/tests/parity/goldens/multi_relation_controltop_degree_only_target_degree/output.bif
+Done. Golden files in: /app/tests/parity/goldens/multi_relation_controltop_degree_only_target_degree

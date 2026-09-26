@@ -1,0 +1,17 @@
+{
+  "schema": "project-task-card/v1",
+  "branch": "lane/biofabric-step03-core-layouts",
+  "base_commit": "cce2c14e6feab245d168950d0769b7669956cf47",
+  "task": "Make one narrow follow-up correction to the current rejected STEP-03 repair result. Modify only crates/core/src/layout/control_top.rs and its existing in-file tests; do not change any other source, public API, manifest, lockfile, fixture, external test, Git metadata, or workflow artifact. The newly introduced unbounded GrayCode signature must preserve the exact ordering semantics of the prior safe machine-word implementation for all control lists that fit in usize: control index 0 is the least-significant bit, so with controls c0,c1 the signature containing only c0 sorts before the signature containing only c1. Retain arbitrary-length safety without unchecked shifts. Add a focused regression test that distinguishes those two cases; the existing 80-control safety test must remain. Also ensure cancellation is observable throughout GrayCode signature construction: do not hide an unbounded full-link scan inside an unchecked iterator/closure; use cancellable loops or an equivalent precomputed representation, returning LayoutError::Cancelled after work has begun. Run only focused non-Docker source checks available to the worker; do not invoke Docker, a verifier, or Git. Write a truthful RESULT.json. ROOT will rerun bridge checks and review the combined repair before acceptance.",
+  "acceptance_criteria": [
+    "Only control_top.rs and its private in-file tests change.",
+    "GrayCode ordering matches prior low-index/least-significant-bit behavior for normal-sized control lists while remaining safe for arbitrarily many controls.",
+    "Cancellation is checked during material signature construction rather than only between targets.",
+    "RESULT.json truthfully reports the focused change and any limitations."
+  ],
+  "deliverables": [
+    "A focused control_top.rs correction and regression test.",
+    "A truthful RESULT.json."
+  ],
+  "reason_for_acceptance_and_deliverables": "ROOT found a semantic regression in the prior repair: lexicographic Vec<bool> comparison reverses the established GrayCode bit significance. This must be fixed before the broader layout repair can be staged or independently reviewed."
+}

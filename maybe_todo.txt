@@ -1,0 +1,7 @@
+move claude codex into the repo; use /goal feature of CLI if possible.
+
+-> also needs to respecify reasoning efforts.
+change the prompt to specify the skills used / needed, then use /goal to run the spec and plan.
+-> basically need its own auto workflow first
+-> fix the usage calculator before actually beginning run
+make sure docker has the RAM, GB, CPUs needed

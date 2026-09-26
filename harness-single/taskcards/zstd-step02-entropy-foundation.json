@@ -1,0 +1,13 @@
+{
+  "schema": "project-task-card/v1",
+  "task": "In the assigned isolated worktree, reread goal.md, PLAN.md, RUN_CHECKPOINT.md, and steps/STEP-02-entropy-decoding-foundation.md. Implement only STEP-02 in src/zstd_decompress.c, extending the reviewed STEP-01 frame foundation with bounded RFC 8878 reverse-bitstream primitives, FSE predefined/RLE/custom table and state decoding, and Huffman tree/weight/canonical-code plus one/four-stream literal decoding helpers. Preserve STEP-01 behavior and public API. Do not implement sequence execution, full compressed-block dispatch, or dictionary integration except for reusable internal entropy state required by later steps. Do not alter src/Makefile, src/harness.c, test.sh, rfc8878.txt, fixtures, or planning/checkpoint files. Do not inspect sealed material, use libzstd/another decompressor, or call Docker/harness/Git commands. Work from RFC 8878 and leave a truthful RESULT.json for ROOT.",
+  "acceptance_criteria": [
+    "src/zstd_decompress.c contains C99 bounds-checked entropy helpers sufficient for RFC predefined/RLE/custom FSE and Huffman tree/literal stream consumers, with explicit validity state for later repeat/treeless use.",
+    "The reviewed STEP-01 frame/raw/RLE behavior and protected files remain unchanged, and RESULT.json accurately identifies source changes, checks actually run, and remaining deliberately unimplemented STEP-03/04 behavior."
+  ],
+  "deliverables": [
+    "Modified src/zstd_decompress.c implementing STEP-02 primitives only.",
+    "A truthful result/v1 RESULT.json at the lane worktree root."
+  ],
+  "reason_for_acceptance_and_deliverables": "The entropy foundation is a reusable but bounded prerequisite for sequence reconstruction and trained dictionary loading; source review and ROOT-only bridge checks determine whether its contract is safe for those consumers."
+}

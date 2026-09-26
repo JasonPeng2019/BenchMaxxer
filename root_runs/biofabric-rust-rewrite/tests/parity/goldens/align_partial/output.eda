@@ -1,0 +1,9 @@
+Link Column
+A1::X1 (P) B1::Y1 = 0
+A1::X1 shdw(P) B1::Y1 = 1
+C1:: (pBb) A1::X1 = 2
+B1::Y1 (pBb) C1:: = 3
+C1:: shdw(pBb) A1::X1 = 4
+B1::Y1 shdw(pBb) C1:: = 5
+B1::Y1 (pRr) ::Z1 = 6
+B1::Y1 shdw(pRr) ::Z1 = 7

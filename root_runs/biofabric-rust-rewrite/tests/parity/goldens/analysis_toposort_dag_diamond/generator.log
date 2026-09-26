@@ -1,0 +1,12 @@
+BioFabric headless mode initialized.
+Loading: dag_diamond.sif (SIF)
+Network loaded and laid out successfully.
+Network: 4 nodes, 4 links (8 with shadows)
+Running graph analysis...
+  Computing topological sort...
+    Wrote: /app/tests/parity/goldens/analysis_toposort_dag_diamond/output.toposort (4 nodes assigned)
+  Analysis complete.
+  Wrote: /app/tests/parity/goldens/analysis_toposort_dag_diamond/output.noa
+  Wrote: /app/tests/parity/goldens/analysis_toposort_dag_diamond/output.eda
+  Wrote: /app/tests/parity/goldens/analysis_toposort_dag_diamond/output.bif
+Done. Golden files in: /app/tests/parity/goldens/analysis_toposort_dag_diamond

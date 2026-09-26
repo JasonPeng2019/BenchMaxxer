@@ -1,0 +1,10 @@
+BioFabric headless mode initialized.
+Loading: single_edge.sif (SIF)
+Network loaded and laid out successfully.
+Network: 2 nodes, 1 links (2 with shadows)
+Applying --no-shadows: toggling shadow display OFF...
+  Shadow toggle rebuild complete. Links now: 1 (no shadows)
+  Wrote: /app/tests/parity/goldens/single_edge_noshadow/output.noa
+  Wrote: /app/tests/parity/goldens/single_edge_noshadow/output.eda
+  Wrote: /app/tests/parity/goldens/single_edge_noshadow/output.bif
+Done. Golden files in: /app/tests/parity/goldens/single_edge_noshadow

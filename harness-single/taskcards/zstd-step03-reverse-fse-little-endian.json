@@ -1,0 +1,7 @@
+{
+  "schema": "project-task-card/v1",
+  "task": "Resume the existing STEP-03 lane. ROOT accepts the boundary-vector RFC invariant: RFC 8878 section 4.1 says initial and next FSE state fields are little-endian, so reverse_bits_read must assign its first reverse-encountered bit to the low significance of a multi-bit field. Correct that shared reverse FSE field order (without changing forward Table 20 parsing), then audit direct consumers including FSE states, sequence extra bits, and Huffman bit decoding as needed for consistent semantics. Preserve bounds; do not touch protected files/dictionaries. This is an authorized adjacent shared-primitive correction backed by the 0x06 boundary vector. Do not use Docker/Git/harness CLI/libzstd/another decoder/sealed materials; report truthfully.",
+  "acceptance_criteria": ["Reverse multi-bit FSE fields satisfy RFC little-endian semantics.", "Prior partial decoding is retained or any regression is explicitly reported for ROOT bridge review.", "Only allowed source changes and truthful RESULT.json."],
+  "deliverables": ["Focused src/zstd_decompress.c correction", "Updated truthful RESULT.json"],
+  "reason_for_acceptance_and_deliverables": "A discriminating RFC boundary vector identifies the remaining shared field-order defect; bridge testing will evaluate its consumers." 
+}

@@ -1,0 +1,11 @@
+{
+  "schema": "project-task-card/v1",
+  "task": "Resume the existing STEP-03 lane after its BLOCKED FSE-weight audit. ROOT confirmed the Table 20 variable-width value mapping currently in fse_read_table is RFC-consistent; do not revert it. The remaining defect is likely in an adjacent FSE semantic used by the forward table description or table construction/state transition. Audit fse_read_table byte rounding and zero-repeat handling, fse_build_table's -1/high-threshold placement and symbol next-state calculation, and FSE reverse initial-state/next-state field semantics against RFC 8878 4.1. Derive a concrete discrepancy using the public audio Huffman-tree data before changing source. If an RFC-supported correction is found, make only that focused change while preserving the working repetitive raw/predefined decode; otherwise record precise evidence without speculative code. Do not use Docker, host Git/harness commands, libzstd/another decoder, or sealed materials. RESULT.json must be truthful.",
+  "acceptance_criteria": [
+    "Any shared-FSE change is backed by a specific RFC rule and explains the public Huffman-weight non-Kraft expansion.",
+    "Working predefined-sequence behavior is preserved and only allowed decoder code changes.",
+    "RESULT.json distinguishes derivation from unrun runtime checks."
+  ],
+  "deliverables": ["Focused allowed source repair only if justified", "Updated truthful RESULT.json"],
+  "reason_for_acceptance_and_deliverables": "The Table 20 mapping is now confirmed, but the bounded audio FSE tree supplies evidence that an adjacent shared FSE semantic may remain wrong."
+}

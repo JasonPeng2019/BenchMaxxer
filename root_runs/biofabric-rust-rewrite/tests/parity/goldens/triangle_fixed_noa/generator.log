@@ -1,0 +1,10 @@
+BioFabric headless mode initialized.
+Loading: triangle.sif (SIF)
+Network loaded and laid out successfully.
+Network: 3 nodes, 3 links (6 with shadows)
+Applying fixed node order from: /noa/triangle_reversed.noa
+  Fixed node order applied.
+  Wrote: /app/tests/parity/goldens/triangle_fixed_noa/output.noa
+  Wrote: /app/tests/parity/goldens/triangle_fixed_noa/output.eda
+  Wrote: /app/tests/parity/goldens/triangle_fixed_noa/output.bif
+Done. Golden files in: /app/tests/parity/goldens/triangle_fixed_noa

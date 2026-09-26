@@ -1,0 +1,10 @@
+BioFabric headless mode initialized.
+Loading: dag_deep.sif (SIF)
+Network loaded and laid out successfully.
+Network: 8 nodes, 7 links (14 with shadows)
+Applying --no-shadows: toggling shadow display OFF...
+  Shadow toggle rebuild complete. Links now: 7 (no shadows)
+  Wrote: /app/tests/parity/goldens/dag_deep_noshadow/output.noa
+  Wrote: /app/tests/parity/goldens/dag_deep_noshadow/output.eda
+  Wrote: /app/tests/parity/goldens/dag_deep_noshadow/output.bif
+Done. Golden files in: /app/tests/parity/goldens/dag_deep_noshadow

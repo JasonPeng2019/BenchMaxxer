@@ -1,0 +1,16 @@
+{
+  "schema": "project-task-card/v1",
+  "branch": "lane/biofabric-step03-core-layouts",
+  "base_commit": "9042c2a",
+  "task": "Resume the rejected BioFabric STEP-03 lane in place. Preserve the current uncommitted hierarchy.rs repair and change only crates/core/src/layout/hierarchy.rs, including its private in-module tests if strictly necessary. Do not edit public APIs, manifests, lockfiles, fixtures, external tests, other source paths, Git metadata, or workflow artifacts. Do not invoke Docker, a verifier, or Git. ROOT's pinned bridge found a compile-only defect: criteria_met_with_monitor and is_dag_with_monitor were declared inside `impl NodeLayout for HierDAGLayout`, but they are private inherent helpers rather than trait methods. Move or otherwise restructure those exact helpers so the trait implementation contains only trait members and all existing behavior remains intact: layout_nodes must call the monitored criteria/DAG validation; the public criteria_met wrapper remains behaviorally compatible; valid start_node anchoring, cancellation propagation through criteria/DAG traversal, empty annotation helper entry, and post-default edge handling remain covered by the current private tests. Perform a focused non-Docker rustfmt check if available and write a truthful RESULT.json. ROOT will rerun the pinned bridge before another independent review.",
+  "acceptance_criteria": [
+    "Only hierarchy.rs is changed, and the private helpers compile as inherent HierDAGLayout methods rather than undeclared NodeLayout trait methods.",
+    "All current hierarchy contract behavior and focused regression coverage are retained.",
+    "RESULT.json truthfully reports the focused source check and cache limitations."
+  ],
+  "deliverables": [
+    "A minimal compile repair to the existing HierDAG contract implementation.",
+    "A truthful RESULT.json."
+  ],
+  "reason_for_acceptance_and_deliverables": "ROOT bridge compilation found an E0407/E0599 placement mistake in an otherwise scoped HierDAG repair."
+}

@@ -1,0 +1,15 @@
+{
+  "schema": "project-task-card/v1",
+  "branch": "lane/biofabric-step03-final-validation-review3",
+  "base_commit": "9042c2af8e57f239c1b9a348d3dea7ea8112412c",
+  "task": "Perform a fresh, read-only independent final validation review of BioFabric STEP-03 commit 9042c2af8e57f239c1b9a348d3dea7ea8112412c. Do not edit, stage, commit, delete, or create source/test/manifests/workflow artifacts; do not invoke Docker, a verifier, or Git. Inspect all relevant layout code and directly adjacent types/tests in crates/core/src/layout/build_data.rs, cluster.rs, control_top.rs, default.rs, hierarchy.rs, link_group.rs, set.rs, and similarity.rs. Re-evaluate the full contract: unique contiguous fixed-import rows; arbitrary-length binary-reflected GrayCode with control 0 as LSB; valid start_node anchors in all named layouts; exact configured relation grouping; and cancellation propagation as LayoutError::Cancelled through every material pre-, during-, and post-DefaultEdgeLayout scan in every affected edge-layout wrapper, without returning a completed partial result. Explicitly trace each impl EdgeLayout and every post-default mutation/reordering/annotation/span loop, including empty-input paths. Confirm public compatibility and no unintended semantics regression. The ROOT pinned bridge compiled this commit and ran cargo test -p biofabric-core --lib: 45 passed; only the three known deferred alignment todo! stubs failed. Do not report those specified alignment stubs as STEP-03 findings. Produce a truthful RESULT.json whose summary begins exactly `REVIEW: SHIP`, `REVIEW: REVISE`, or `REVIEW: BLOCK`, and whose evidence includes all exact headings: `Findings:`, `Contract coverage:`, `Questions:`, and `Verification gaps:`. For every confirmed material finding cite file:line, impact, and smallest correction; distinguish optional ideas. ROOT will only accept after reviewing this report.",
+  "acceptance_criteria": [
+    "The review is independent and strictly read-only.",
+    "The report traces every affected EdgeLayout wrapper, post-default scan, and stated correctness contract.",
+    "The RESULT.json uses the required REVIEW decision and four headings with evidence for any material finding."
+  ],
+  "deliverables": [
+    "A truthful, comprehensive independent STEP-03 review in RESULT.json."
+  ],
+  "reason_for_acceptance_and_deliverables": "Prior reviews successively uncovered remaining default-edge and wrapper cancellation paths. The final review must explicitly validate complete cancellation coverage before acceptance."
+}

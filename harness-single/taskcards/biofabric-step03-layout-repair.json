@@ -1,0 +1,17 @@
+{
+  "schema": "project-task-card/v1",
+  "branch": "lane/biofabric-step03-core-layouts",
+  "base_commit": "cce2c14e6feab245d168950d0769b7669956cf47",
+  "task": "Repair the rejected BioFabric STEP-03 layout custody commit in place. You own only crates/core/src/layout/control_top.rs, set.rs, hierarchy.rs, cluster.rs, world_bank.rs, and default.rs, including their existing private source-module tests. Do not edit public types/traits/signatures, manifests, lockfiles, fixtures, external tests, other source paths, Git metadata, or workflow artifacts. Begin from the existing committed implementation and make the smallest complete corrections: (1) ensure control FixedList and other ordering paths emit each network node once; preserve caller order where valid; make GrayCode ordering deterministic and safe for arbitrarily many controls without unchecked usize shifts; (2) ensure set layouts do not duplicate nodes in nested/self-referential memberships; (3) make hierarchy level/order correctly handle parallel directed arcs and preserve deterministic DAG behavior; (4) honor periodic cancellation checks throughout material scans/order loops, propagating LayoutError::Cancelled; (5) implement deterministic cluster BreadthFirst ordering from inter-cluster adjacency rather than Name ordering, while keeping LinkSize, NodeSize, Name semantics and the existing Between metadata rebuild correct; (6) make World Bank hub/spoke ordering actually group spokes by a deterministic adjacent hub; and (7) make caller LayoutParams.link_groups influence default layout column ordering as well as reported annotation/group metadata. Add focused private source-module regression tests for each behavior where practical. Run only focused non-Docker source checks that are available to the worker; do not invoke Docker, a verifier, or Git. Write a truthful RESULT.json describing exact files changed, test results, and any remaining uncertainty. ROOT will run the pinned bridge tests, inspect the staged diff, and obtain a fresh review before acceptance.",
+  "acceptance_criteria": [
+    "Only the six named layout source files and their existing in-file tests are modified; all fixed APIs and protected paths remain unchanged.",
+    "The repaired layouts produce deterministic, duplicate-free valid node orders; hierarchy handles parallel arcs; GrayCode cannot panic from control-count shifts; and cancellation propagates after work begins.",
+    "Cluster BreadthFirst, World Bank hub/spoke, and caller link-group column ordering have real deterministic behavior rather than inert advertised options.",
+    "Focused regression tests cover the repaired edge cases where practical, and RESULT.json truthfully reports evidence and limitations."
+  ],
+  "deliverables": [
+    "Scoped source repairs and focused in-module regression tests.",
+    "A truthful RESULT.json with changed paths, verification, and remaining uncertainty."
+  ],
+  "reason_for_acceptance_and_deliverables": "A valid independent review found material correctness defects in the rejected layout commit. This resume is intentionally limited to those evidence-backed defects before a new bridge check and independent review."
+}

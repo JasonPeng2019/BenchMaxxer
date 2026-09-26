@@ -1,0 +1,10 @@
+.agent-runtime/
+.harness-runtime/
+.venv/
+__pycache__/
+*.pyc
+src/zstd_decompress
+.timer_start
+.agent/verify.toml
+.agent/stop-verify.json
+.claude/settings.local.json

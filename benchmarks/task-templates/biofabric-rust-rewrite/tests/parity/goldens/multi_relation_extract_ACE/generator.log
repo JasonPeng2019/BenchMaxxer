@@ -1,0 +1,10 @@
+BioFabric headless mode initialized.
+Loading: multi_relation.sif (SIF)
+Network loaded and laid out successfully.
+Network: 5 nodes, 6 links (12 with shadows)
+Extracting subnetwork for nodes: [A, C, E]
+  Subnetwork extracted: 3 nodes, 2 links
+  Wrote: /app/tests/parity/goldens/multi_relation_extract_ACE/output.noa
+  Wrote: /app/tests/parity/goldens/multi_relation_extract_ACE/output.eda
+  Wrote: /app/tests/parity/goldens/multi_relation_extract_ACE/output.bif
+Done. Golden files in: /app/tests/parity/goldens/multi_relation_extract_ACE

@@ -1,0 +1,17 @@
+{
+  "schema": "project-task-card/v1",
+  "branch": "lane/biofabric-step02-network-interchange",
+  "base_commit": "72ca8d568b35a76aaa22f20de87075df50b7fdc7",
+  "task": "Resume the rejected BioFabric STEP-02 lane in place. Preserve the current uncommitted XML/SIF interoperability repair and change only crates/core/src/io/xml.rs, including existing private in-module tests if strictly needed. Do not edit public types, manifests, lockfiles, fixtures, external tests, other source paths, Git metadata, or workflow artifacts. Do not invoke Docker, a verifier, or Git. ROOT's pinned bridge found one concrete regression in the new tokenization pre-pass: normal serialized plugInDataSets payloads gain an indentation-only trailing plugin_data_lines entry immediately before the closing tag. Restore preexisting raw-plugin round-trip behavior while retaining the newly required compact token handling and pseudo-score shielding. In particular, do not add whitespace-only delimiter indentation to plugin_data_lines for the existing session/display/layout and visible NetAlignMeasure round trips; do not erase intentional opaque payload content beyond what the prior reader treated as structural delimiters. Ensure the existing three named round-trip tests pass alongside the new compact-XML and pseudo-score tests. Run focused non-Docker formatting if available and write a truthful RESULT.json. ROOT will rerun the pinned bridge before another independent review.",
+  "acceptance_criteria": [
+    "Only xml.rs is newly changed, preserving the current scoped XML/SIF repair.",
+    "Existing raw plugInDataSets fidelity tests no longer gain indentation-only trailing lines.",
+    "Compact XML, post-root Misc, visible score extraction, and opaque comment/CDATA pseudo-score behavior remain intact.",
+    "RESULT.json truthfully records focused checks and limitations."
+  ],
+  "deliverables": [
+    "A minimal raw-plugin payload fidelity correction.",
+    "A truthful RESULT.json."
+  ],
+  "reason_for_acceptance_and_deliverables": "ROOT bridge validation isolated a single trailing-delimiter regression in the current XML tokenizer repair."
+}

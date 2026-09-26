@@ -1,0 +1,18 @@
+{
+  "schema": "project-task-card/v1",
+  "branch": "lane/biofabric-step02-network-interchange",
+  "base_commit": "a2f18d06af4b4b26d65e7e4bce313e6d57c96e04",
+  "task": "Repair the current rejected BioFabric STEP-02 interchange custody commit in place. You own only crates/core/src/io/gw.rs and crates/core/src/io/xml.rs, including their existing private source-module tests. Do not edit public types/traits/signatures, manifests, lockfiles, fixtures, external tests, other source paths, Git metadata, or workflow artifacts. Preserve all already-repaired I/O behavior: SIF multi-target/error handling, order positions/shdw parsing, attributes, canonical JSON, GW trailing/mixed-direction checks, BIF annot grammar, regular/no-shadow columns, empty layouts, metadata/display/scores, and normal/shadow drain zones. Make the smallest complete evidence-backed corrections: (1) XML writing must never silently drop network nodes/links merely because a present NetworkLayout is incomplete; validate that a layout covers and agrees with the session network and return the existing error boundary on mismatch, or implement a lossless defined union—never emit a changed network. Add a regression with network link data absent from layout records. (2) Treat `<plugInDataSets/>` as a valid empty plugin container, preserving existing nonempty opaque plugin behavior. (3) Strengthen XML validation for modeled BIF content without a new dependency: malformed/unknown modeled structure, malformed nesting, duplicate attributes, and unknown/unterminated/numerically-invalid entities must reach ParseError rather than be silently ignored or altered; preserve valid XML declaration/comments if supported and preserve documented opaque raw plugin payload inside plugin containers. Add focused malformed-input regressions including `<bogus/>`, duplicate modeled attribute, and invalid entity. (4) GW parsing must reject duplicate declared node labels before model insertion so distinct declared identities cannot silently collapse. Add a regression. Run only focused non-Docker source checks available to the worker; do not invoke Docker, a verifier, or Git. Write a truthful RESULT.json with exact paths, test results, and uncertainty. ROOT will rerun bridge checks and acquire another fresh independent review before acceptance.",
+  "acceptance_criteria": [
+    "Only gw.rs, xml.rs, and their existing in-file tests are modified; fixed APIs and protected paths remain unchanged.",
+    "An incomplete layout cannot serialize into a graph with omitted nodes or links; it either serializes losslessly by a defined contract or fails with ParseError.",
+    "Empty and nonempty plugin containers remain compatible while malformed modeled XML, duplicate attributes, and invalid entities fail safely at ParseError.",
+    "GW duplicate declared labels fail at ParseError rather than collapsing model identities.",
+    "Focused source-module regressions cover the repaired behaviors where practical, and RESULT.json truthfully reports evidence and limitations."
+  ],
+  "deliverables": [
+    "Scoped XML/GW correctness repairs with focused in-module regression tests.",
+    "A truthful RESULT.json with changed paths, verification, and remaining uncertainty."
+  ],
+  "reason_for_acceptance_and_deliverables": "A fresh independent review found four material no-loss and malformed-input defects after the first I/O repair. This resume is restricted to those evidence-backed XML/GW boundary failures."
+}

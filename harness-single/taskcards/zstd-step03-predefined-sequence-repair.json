@@ -1,0 +1,14 @@
+{
+  "schema": "project-task-card/v1",
+  "task": "Resume the same isolated STEP-03 worktree and retain valid prior fixes. ROOT bridge build succeeds, but all compressed public samples still return zero. Diagnose and repair the direct cause in the bounded compressed-block path, starting with the visible minimal public `repetitive.zst` case: it is a 29-byte frame whose compressed block has raw literals, Number_of_Sequences=1, Symbol_Compression_Modes=0 (all predefined FSE), and sequence bitstream bytes cf 3b 7f. Audit the FSE predefined table consumption/state initialization, reverse-bit order and end-marker handling, sequence-code extra bits and output execution against RFC 8878. Do not change unrelated dictionary behavior or protected files. Preserve the already-correct trailing-literal and LL=0 repeat fixes unless the RFC proves a needed adjacent correction. Worker isolation has no C compiler, so reason from RFC/source and truthfully report any check limitation; do not use Docker, host Git, harness CLI, libzstd, another decompressor, or sealed materials.",
+  "acceptance_criteria": [
+    "The RFC path for raw literals plus one all-predefined-FSE sequence is internally consistent: initial states, code lookup, extra-bit order, state updates, bitstream exhaustion, and output bounds are correct.",
+    "Only directly implicated allowed decoder code changes, with prior valid final-literal and LL=0 behavior retained.",
+    "RESULT.json truthfully states the diagnosis, changed files, and any unrun checks."
+  ],
+  "deliverables": [
+    "A narrowly repaired src/zstd_decompress.c in the existing lane worktree.",
+    "An updated truthful result/v1 RESULT.json."
+  ],
+  "reason_for_acceptance_and_deliverables": "The public bridge isolates a simple no-Huffman/no-custom-table compressed path, so it is the smallest factual recovery target before broader STEP-03 integration."
+}

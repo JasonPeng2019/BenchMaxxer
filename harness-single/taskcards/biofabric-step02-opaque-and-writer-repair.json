@@ -1,0 +1,17 @@
+{
+  "schema": "project-task-card/v1",
+  "branch": "lane/biofabric-step02-network-interchange",
+  "base_commit": "535da0117e20fd452da8eb4129e46c0809424467",
+  "task": "Resume the rejected BioFabric STEP-02 lane in place from the current custody commit. Preserve all existing interchange behavior and change only crates/core/src/io/xml.rs, crates/core/src/io/gw.rs, and crates/core/src/io/order.rs, including their existing private in-module tests. Do not modify public types, manifests, lockfiles, fixtures, external tests, other source paths, Git metadata, or workflow artifacts. Do not invoke Docker, a verifier, or Git. A fresh independent review found six bounded data-boundary defects. Repair them with the smallest complete behavior: (1) the XML modeled-token pre-pass must retain opaque plugInDataSets payload physical lines reversibly, including meaningful leading/trailing empty or whitespace-only payload lines; do not heuristically strip/re-add payload delimiters in a way that alters content; (2) real opaque-container close scanning must also skip complete processing instructions, including one containing a fake closing literal, and reject unterminated PIs; (3) alignment-score extraction from opaque payload must recognize genuine complete NetAlignMeasure elements outside comments, CDATA, and PIs even when XML Misc shares their physical line, while never interpreting pseudo-measures inside those opaque ranges; (4) tokenization must reject invalid XML comments with interior `--` rather than silently discarding them, preserving all other strict malformed-token/declaration/entity behavior; (5) GW writers must reject CR/LF-bearing node labels and relations before emitting a record that their reader cannot round-trip, using the established I/O error contract instead of inventing escaping; (6) order writers must reject node IDs/relations containing syntax delimiters or line breaks that make their existing `=`/parenthesis-based grammar ambiguous or unparseable, again before writing. Preserve all already passing SIF/XML/GW/order contracts, compact modeled XML acceptance, post-root XML Misc, raw-first-column GW comments, scalar validation, and existing raw plugin round trips. Add focused private regressions for all six review findings. Run focused non-Docker source checks available to the worker and write a truthful RESULT.json with paths, tests, and cache limitations. ROOT will run the pinned bridge and a fresh final review before acceptance.",
+  "acceptance_criteria": [
+    "Only xml.rs, gw.rs, and order.rs plus private in-module tests are newly changed; prior STEP-02 repairs remain intact.",
+    "Opaque XML payload and score token boundaries are physically faithful and strict for comments/PIs, including mixed same-line XML Misc.",
+    "GW and order writers cannot silently output fields their current readers cannot parse reversibly.",
+    "Focused private regressions cover all six defects, and RESULT.json truthfully records evidence and limitations."
+  ],
+  "deliverables": [
+    "A minimal opaque-XML and writer-boundary repair with private regression coverage.",
+    "A truthful RESULT.json."
+  ],
+  "reason_for_acceptance_and_deliverables": "Fresh independent final review identified six concrete residual STEP-02 interoperability defects after the XML/SIF correction."
+}

@@ -1,0 +1,17 @@
+{
+  "schema": "project-task-card/v1",
+  "branch": "lane/biofabric-step02-network-interchange",
+  "base_commit": "5bf21d8cd993abe6165d4288a079eb45533d6214",
+  "task": "Repair the current rejected STEP-02 result using the pinned-bridge failures as the only scope. Modify only crates/core/src/io/sif.rs and crates/core/src/io/xml.rs, including their existing private in-file tests. Do not change any other source, public API, manifest, lockfile, fixture, external test, Git metadata, or workflow artifact. The bridge proves two defects: (1) the new valid multi-target SIF behavior inserts the additional target node, so its regression must accurately assert deterministic node order `B, C, D, A` and output including target D; preserve rejection of incomplete two-field records. (2) XML parser logic must distinguish an exact `</node>` close from longer section tags such as `</nodeAnnotations>`; the current prefix match returns `node close without open` for valid BIF annotation/session documents. Restore valid parsing for laid-out sessions, standard `annot tag` sections, explicit empty layouts, and normal/shadow drain zones while retaining the new malformed-structure detection and identity/entity/column fixes. Add or correct focused private source tests as necessary. Do not invoke Docker, a verifier, or Git; write truthful RESULT.json. ROOT will rerun the pinned bridge suite before any staging.",
+  "acceptance_criteria": [
+    "Only sif.rs, xml.rs, and their private in-file tests change.",
+    "The multi-target SIF regression matches actual lossless behavior and incomplete records still fail at ParseError.",
+    "Valid node annotation section closes no longer trigger node-close errors, and all existing XML BIF/session/drain-zone regressions remain valid.",
+    "RESULT.json truthfully reports the focused repair and verification limitation."
+  ],
+  "deliverables": [
+    "A focused SIF/XML repair with corrected private source tests.",
+    "A truthful RESULT.json."
+  ],
+  "reason_for_acceptance_and_deliverables": "ROOT bridge evidence showed five I/O failures caused by an incorrect SIF assertion and XML prefix-matching regression. The source result cannot be accepted until those concrete failures are repaired."
+}

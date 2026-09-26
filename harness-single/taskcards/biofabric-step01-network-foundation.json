@@ -1,0 +1,18 @@
+{
+  "schema": "project-task-card/v1",
+  "branch": "lane/biofabric-step01-network-foundation",
+  "task": "Implement STEP-01 of the BioFabric Rust rewrite: make the fixed network/model and graph-analysis foundation operational. You own only crates/core/src/model/**, crates/core/src/analysis/**, and crates/core/src/worker.rs. Complete the existing public APIs in those paths without changing any public type, trait, method signature, Cargo manifest/lockfile, CLI code, I/O code, layout code, alignment code, existing test other than none, fixtures, goldens, or workflow artifacts. Preserve deterministic behavior and Java-compatible semantics inferred only from the visible source/tests/fixtures. In particular implement coherent Network mutation/query/index/metadata behavior, Link shadow/synonym semantics, selection/annotation helpers, graph traversal/components/neighborhood/degree/path/topological/DAG/cycle behavior, and ProgressMonitor/LoopReporter semantics. Use focused behavior contracts in the existing source-test style where a source-level test is needed; do not alter protected test files. Do not use Docker, Git add/commit, a verifier, benchmark paths, results paths, or operator-only runtime paths. Leave all permitted edits in the worktree and write a truthful RESULT.json using the supplied template when finished. ROOT will run the required Docker-bridge checks after this provider exits.",
+  "acceptance_criteria": [
+    "All edited paths are confined to crates/core/src/model/**, crates/core/src/analysis/**, and crates/core/src/worker.rs.",
+    "The fixed public model, graph-analysis, and monitor interfaces are implemented without signature or manifest changes and no reachable stub remains in the owned behavior path.",
+    "Network/link ordering, shadows, self-links, directed metadata, adjacency invalidation/rebuild, graph traversal, components, neighborhoods, and DAG/cycle behavior are deterministic and consistent with visible task evidence.",
+    "Any focused source-level test added is confined to the owned source modules and protects an observable behavior; protected test files and fixtures remain unchanged.",
+    "RESULT.json accurately identifies changed paths, checks actually run (if any), remaining uncertainty, and any blocker."
+  ],
+  "deliverables": [
+    "Completed implementation in the owned model, analysis, and worker source paths.",
+    "Any narrowly scoped source-module tests needed to express the selected behavior contracts.",
+    "A truthful RESULT.json in the lane worktree."
+  ],
+  "reason_for_acceptance_and_deliverables": "This is the shared data and graph contract consumed by all later I/O, layout, alignment, parity-adapter, and CLI steps. Keeping one lane responsible for these disjoint-from-later source paths prevents incompatible graph semantics from being duplicated across consumers while preserving the fixed public API."
+}

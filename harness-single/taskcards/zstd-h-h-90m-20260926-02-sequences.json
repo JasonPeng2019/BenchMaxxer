@@ -1,0 +1,9 @@
+{
+  "schema": "project-task-card/v1",
+  "task": "Implement only src/zstd_sequences.inc and src/zstd_dict.inc for the RFC 8878 decoder, consuming committed src/zstd_internal.h and calling entropy helpers declared or available in zstd_entropy.inc. Implement compressed-block literal/sequence orchestration, RFC sequence extra-bit lengths, repeat-offset rules, overlapping match copies including dictionary/output history, dictionary ID validation, and trained dictionary parsing/preloaded content, entropy tables, and offsets. Do not edit Makefile, harness.c, zstd_decompress.c, zstd_internal.h, specs, or any other path; do not call/copy libzstd. Commit owned files and write RESULT.json.",
+  "acceptance_criteria": ["Only the two assigned fragments change and their API fits the frozen internal header.", "Sequences/repeat offsets/overlap and dictionary initialization are bounded and RFC-directed."],
+  "deliverables": ["Committed src/zstd_sequences.inc and src/zstd_dict.inc", "RESULT.json with commit, checks, and entropy integration requirements"],
+  "reason_for_acceptance_and_deliverables": "These isolated files deliver the output reconstruction and trained-dictionary domain for ROOT integration.",
+  "branch": "lane/zstd-02-sequences",
+  "base_commit": "d24e656b361bd8297159c0ecbb42c50c227f6924"
+}

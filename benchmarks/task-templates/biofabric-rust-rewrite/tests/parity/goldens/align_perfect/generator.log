@@ -1,0 +1,25 @@
+BioFabric headless mode initialized.
+Loading: align_net1.sif (SIF)
+Network loaded and laid out successfully.
+Network: 3 nodes, 3 links (6 with shadows)
+Running alignment pipeline...
+  Graph1: 6 links, 0 loners
+  Graph2: 4 links, 0 loners
+  Alignment: 3 mapped nodes
+  Perfect alignment: 3 mapped nodes
+  View type: GROUP
+  Merged: 6 links, 0 loners
+  Scores computed: 7 metrics
+    networkAlignment.edgeCoverage = 0.6666666666666666
+    networkAlignment.symmetricSubstructureScore = 0.6666666666666666
+    networkAlignment.inducedConservedStructure = 1.0
+    networkAlignment.nodeCorrectness = 1.0
+    networkAlignment.nodeGroupSimilarity = 1.0
+    networkAlignment.linkGroupSimilarity = 1.0
+    networkAlignment.jaccardSimilarity = 1.0
+  Alignment network built: 3 nodes, 3 links
+  Wrote: /app/tests/parity/goldens/align_perfect/output.noa
+  Wrote: /app/tests/parity/goldens/align_perfect/output.eda
+  Wrote: /app/tests/parity/goldens/align_perfect/output.bif
+  Wrote: /app/tests/parity/goldens/align_perfect/output.scores
+Done. Golden files in: /app/tests/parity/goldens/align_perfect

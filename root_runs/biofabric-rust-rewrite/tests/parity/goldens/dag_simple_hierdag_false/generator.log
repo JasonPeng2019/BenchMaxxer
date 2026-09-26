@@ -1,0 +1,10 @@
+BioFabric headless mode initialized.
+Loading: dag_simple.sif (SIF)
+Network loaded and laid out successfully.
+Network: 6 nodes, 5 links (10 with shadows)
+Applying layout: HierDAG (pointUp=false)...
+  Layout applied. Network: 6 nodes, 5 links
+  Wrote: /app/tests/parity/goldens/dag_simple_hierdag_false/output.noa
+  Wrote: /app/tests/parity/goldens/dag_simple_hierdag_false/output.eda
+  Wrote: /app/tests/parity/goldens/dag_simple_hierdag_false/output.bif
+Done. Golden files in: /app/tests/parity/goldens/dag_simple_hierdag_false

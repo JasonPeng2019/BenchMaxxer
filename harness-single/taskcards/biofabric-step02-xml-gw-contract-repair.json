@@ -1,0 +1,18 @@
+{
+  "schema": "project-task-card/v1",
+  "branch": "lane/biofabric-step02-network-interchange",
+  "base_commit": "e4636ea76a4e60da51bf74870fa23e6eb256d791",
+  "task": "Resume the rejected BioFabric STEP-02 interchange lane in place. The current custody commit implements the nine I/O formats, but a fresh independent source review found five concrete defects. Own only crates/core/src/io/xml.rs and crates/core/src/io/gw.rs, including their existing private in-module tests. Do not edit public types, manifests, lockfiles, fixtures, external tests, other source paths, Git metadata, or workflow artifacts. Preserve all previously accepted behavior: standard BIF annot tags and optional colors, plugin raw-payload fidelity, empty drain-zone containers, regular/shadow column handling, metadata/scores already covered, XML entity/duplicate-attribute validation, layout-vs-network write validation, GW directedness/duplicate-label checks, and all non-XML/GW formats. Make the smallest complete evidence-backed repairs: (1) require modeled XML leaf elements sessionState, sessionMetadata, layoutState, and displayOptions to have a complete legal form; reject malformed/unclosed versions rather than silently accepting them; (2) make XML read/write preserve every public DisplayOptions field and all NetworkLayout state currently lost by the writer/reader: link_group_order, layout_mode_text, link_group_annots, and cluster_assignments. Use a backward-compatible, escaped representation that round-trips deterministically and does not corrupt raw plugInDataSets payloads; (3) enforce legal placement/nesting for modeled XML elements and containers, while continuing to treat plugInDataSets payload as opaque raw data; (4) reject XML annotations with end < start before installing them; (5) fully consume each documented GW node and edge record, rejecting malformed trailing fields or labels instead of extracting a label from anywhere in the line. Preserve valid writer output and valid normal GW/BIF input. Add focused private regressions for all five findings, including a full populated Session round trip across every affected public field, malformed singleton XML, illegal modeled nesting, inverted annotations, and a GW edge with internal trailing junk. Run focused non-Docker source checks available to the worker; do not invoke Docker, a verifier, or Git. Write a truthful RESULT.json naming changed paths, checks, and uncertainty. ROOT will run the authoritative pinned bridge and another independent review before acceptance.",
+  "acceptance_criteria": [
+    "Only xml.rs and gw.rs plus their existing in-module tests change during this resume; protected paths and public APIs remain untouched.",
+    "Malformed modeled XML and malformed/internal-trailing GW records return ParseError rather than producing a lossy or partial Session/Network.",
+    "A populated Session preserves every DisplayOptions field and the named NetworkLayout state through XML write/read, without changing plugin raw payload behavior.",
+    "Modeled XML placement and annotation ranges are validated, while valid BIF with empty containers and standard annotations remains accepted.",
+    "RESULT.json truthfully records exact paths, checks, and limitations."
+  ],
+  "deliverables": [
+    "Scoped XML/GW correctness repairs with in-module regression coverage.",
+    "A truthful RESULT.json."
+  ],
+  "reason_for_acceptance_and_deliverables": "The independent validation review found five material wire-format correctness and losslessness defects. This resume is deliberately restricted to their two affected implementation files before another bridge check and fresh review."
+}

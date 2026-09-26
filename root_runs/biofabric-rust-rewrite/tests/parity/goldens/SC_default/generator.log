@@ -1,0 +1,10 @@
+BioFabric headless mode initialized.
+Loading: SC.sif (SIF)
+Sep 22, 2026 5:54:07 AM java.util.prefs.FileSystemPreferences$1 run
+INFO: Created user preferences directory.
+Network loaded and laid out successfully.
+Network: 5831 nodes, 77149 links (154298 with shadows)
+  Wrote: /app/tests/parity/goldens/SC_default/output.noa
+  Wrote: /app/tests/parity/goldens/SC_default/output.eda
+  Wrote: /app/tests/parity/goldens/SC_default/output.bif
+Done. Golden files in: /app/tests/parity/goldens/SC_default

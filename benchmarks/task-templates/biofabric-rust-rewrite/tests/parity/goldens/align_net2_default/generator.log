@@ -1,0 +1,8 @@
+BioFabric headless mode initialized.
+Loading: align_net2.sif (SIF)
+Network loaded and laid out successfully.
+Network: 3 nodes, 2 links (4 with shadows)
+  Wrote: /app/tests/parity/goldens/align_net2_default/output.noa
+  Wrote: /app/tests/parity/goldens/align_net2_default/output.eda
+  Wrote: /app/tests/parity/goldens/align_net2_default/output.bif
+Done. Golden files in: /app/tests/parity/goldens/align_net2_default

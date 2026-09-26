@@ -1,0 +1,9 @@
+{
+  "schema": "project-task-card/v1",
+  "task": "Implement the RFC 8878 frame and block controller in the assigned isolated worktree. Own only src/zstd_frame.c and updates required in src/zstd_internal.h. Parse normal/skippable/concatenated frames, headers, raw/RLE blocks, checksum and dispatch compressed blocks through the frozen context. Do not edit Makefile, public API/harness, tests, samples, RFC, or any entropy/sequence file. Commit your work and write RESULT.json through the native harness.",
+  "acceptance_criteria": ["The assigned fragment compiles when included by the root integration source.", "Frame control rejects malformed bounded input and supports raw/RLE/skippable concatenation."],
+  "deliverables": ["src/zstd_frame.c", "Any necessary compatible additions to src/zstd_internal.h", "Native lane result metadata."],
+  "reason_for_acceptance_and_deliverables": "The frame controller is an independent, mergeable prerequisite for integrated RFC decoding.",
+  "branch": "lane/zstd-frame",
+  "base_commit": "9a94907319f521596eed62a8e6ae08236789f6a5"
+}

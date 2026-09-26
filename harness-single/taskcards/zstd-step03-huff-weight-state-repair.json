@@ -1,0 +1,11 @@
+{
+  "schema": "project-task-card/v1",
+  "task": "Resume the existing STEP-03 worktree and preserve all prior valid fixes. ROOT has rejected the no-change audit: it isolates the remaining public failures to huff_decode_fse_weights expanding audio.wav.zst's bounded 25-byte two-state FSE weight stream into a non-Kraft-valid series before literal decoding. Reconcile this exact routine with RFC 8878 4.2.1.2: State1 emits even indexes, State2 odd indexes; each decoded symbol is followed by its own update; on the first update overflow, zero-fill that update then emit symbols for each final state in RFC order. Audit the interaction with the existing reverse multi-bit field ordering and FSE table entry semantics. Make only a concrete RFC-supported correction, retain raw/predefined, final-literal, and LL=0 behavior, and do not broaden into dictionary work. Do not use Docker, host Git, harness CLI, external decompressors/libzstd, or sealed material; report local evidence and limitations truthfully in RESULT.json.",
+  "acceptance_criteria": [
+    "The FSE-compressed Huffman-weight stream emits exactly the intended alternating weights and has RFC-compliant overflow/final-state handling.",
+    "The resulting explicit weight series can reach canonical Huffman construction for the public failing path without weakening input bounds.",
+    "Only allowed decoder source changes and truthful result evidence."
+  ],
+  "deliverables": ["Focused src/zstd_decompress.c repair", "Updated truthful RESULT.json"],
+  "reason_for_acceptance_and_deliverables": "ROOT has a concrete, bounded entropy-consumer defect and must preserve the independently working compressed paths while repairing it."
+}

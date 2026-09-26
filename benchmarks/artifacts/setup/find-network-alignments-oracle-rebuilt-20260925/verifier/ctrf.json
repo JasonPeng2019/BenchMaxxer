@@ -1,0 +1,41 @@
+{
+    "results": {
+        "tool": {
+            "name": "pytest",
+            "version": "8.4.1"
+        },
+        "summary": {
+            "tests": 2,
+            "passed": 1,
+            "failed": 1,
+            "skipped": 0,
+            "pending": 0,
+            "other": 0,
+            "start": 1790321704.9062188,
+            "stop": 1790321705.7111292
+        },
+        "tests": [
+            {
+                "name": "test_outputs.py::test_candidate_build_artifact_exists",
+                "status": "passed",
+                "duration": 0.0012408999999706793,
+                "start": 1790321705.5765238,
+                "stop": 1790321705.5787835,
+                "retries": 0,
+                "file_path": "test_outputs.py"
+            },
+            {
+                "name": "test_outputs.py::test_alignments_reach_targets",
+                "status": "failed",
+                "raw_status": "call_failed",
+                "duration": 0.10176510000019334,
+                "start": 1790321705.5794683,
+                "stop": 1790321705.710876,
+                "retries": 0,
+                "file_path": "test_outputs.py",
+                "trace": "/tests/test_outputs.py:234: in test_alignments_reach_targets\n    assert primary_metrics.s3 >= PRIMARY_TARGET_S3, (\nE   AssertionError: S3 target not met for DMelanogaster vs HSapiens. Observed 0.315106, required at least 0.320000.\nE   assert 0.31510569583088666 >= 0.32\nE    +  where 0.31510569583088666 = AlignmentMetrics(s3=0.31510569583088666, aligned_edges=12879, induced_edges=18998).s3",
+                "message": "The test failed in the call phase due to an assertion error"
+            }
+        ]
+    }
+}

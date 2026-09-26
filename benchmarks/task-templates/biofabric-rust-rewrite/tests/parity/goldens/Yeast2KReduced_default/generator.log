@@ -1,0 +1,8 @@
+BioFabric headless mode initialized.
+Loading: Yeast2KReduced.sif (SIF)
+Network loaded and laid out successfully.
+Network: 2379 nodes, 16063 links (32126 with shadows)
+  Wrote: /app/tests/parity/goldens/Yeast2KReduced_default/output.noa
+  Wrote: /app/tests/parity/goldens/Yeast2KReduced_default/output.eda
+  Wrote: /app/tests/parity/goldens/Yeast2KReduced_default/output.bif
+Done. Golden files in: /app/tests/parity/goldens/Yeast2KReduced_default

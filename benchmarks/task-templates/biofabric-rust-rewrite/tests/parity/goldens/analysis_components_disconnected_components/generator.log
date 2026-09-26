@@ -1,0 +1,12 @@
+BioFabric headless mode initialized.
+Loading: disconnected_components.sif (SIF)
+Network loaded and laid out successfully.
+Network: 11 nodes, 8 links (16 with shadows)
+Running graph analysis...
+  Computing connected components...
+    Wrote: /app/tests/parity/goldens/analysis_components_disconnected_components/output.components (4 components)
+  Analysis complete.
+  Wrote: /app/tests/parity/goldens/analysis_components_disconnected_components/output.noa
+  Wrote: /app/tests/parity/goldens/analysis_components_disconnected_components/output.eda
+  Wrote: /app/tests/parity/goldens/analysis_components_disconnected_components/output.bif
+Done. Golden files in: /app/tests/parity/goldens/analysis_components_disconnected_components

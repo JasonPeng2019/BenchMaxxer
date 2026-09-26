@@ -1,0 +1,9 @@
+{
+  "schema": "project-task-card/v1",
+  "task": "Dedicated ROOT integration worktree for the complete RFC 8878 decoder. No provider implementation is requested: ROOT owns all source custody, integration, Docker bridge builds, focused vectors, and public tests in this lane.",
+  "acceptance_criteria": ["The worktree begins at the integrated ROOT commit and is suitable for exact Docker bridge checks."],
+  "deliverables": ["An isolated integration worktree for ROOT-controlled checks"],
+  "reason_for_acceptance_and_deliverables": "The pinned Docker bridge requires an exact native lane worktree; this creates the required integration target." ,
+  "branch": "lane/zstd-02-integration",
+  "base_commit": "b55b3f1f6fe50fabc2870946256b6a33b9e5732e"
+}

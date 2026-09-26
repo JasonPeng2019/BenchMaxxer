@@ -1,0 +1,14 @@
+{
+  "schema": "project-task-card/v1",
+  "task": "Resume the same isolated STEP-03 worktree and preserve its valid compressed-block work. ROOT's bridge build ran, but all compressed public samples returned zero. Repair exactly these confirmed RFC 8878 defects in src/zstd_decompress.c::decode_compressed_block: (1) after executing all sequences, append the remaining literals (after full bounds and frame-content checks) before requiring exact literal accounting; do not reject merely because literals remain. (2) Correct LL=0 repeat-offset resolution in section 3.1.1.5: Offset_Value 1 selects repeat2, value 2 selects repeat3, and value 3 selects repeat1 minus one (reject zero); make the repeat-history update rules consistent with the resolved offset and RFC's special value-3/LL=0 non-repeat rule. Keep payload boundaries and output bounds. Do not alter src/Makefile, src/harness.c, test.sh, RFC, fixtures, planning/checkpoint files, or unrelated STEP-04 dictionary behavior. Do not inspect sealed material, use libzstd/another decompressor, or call Docker/harness/Git commands. Record local checks honestly in RESULT.json.",
+  "acceptance_criteria": [
+    "Sequence blocks correctly append final literals after all sequence commands while preserving exact literal accounting and bounded output.",
+    "LL=0 repeat-offset values 1, 2, and 3 follow RFC 8878 section 3.1.1.5 exactly and repeat history is updated under the documented special case.",
+    "The repair preserves the existing allowed STEP-03 implementation and RESULT.json truthfully describes the repair and checks."
+  ],
+  "deliverables": [
+    "A narrowly corrected src/zstd_decompress.c in the existing lane worktree.",
+    "An updated truthful result/v1 RESULT.json."
+  ],
+  "reason_for_acceptance_and_deliverables": "These two directly observed semantic defects block all valid sequence execution; correcting them is required before broader compressed-path review."
+}

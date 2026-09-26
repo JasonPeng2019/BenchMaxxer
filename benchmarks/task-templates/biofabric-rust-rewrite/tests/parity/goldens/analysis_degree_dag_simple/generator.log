@@ -1,0 +1,12 @@
+BioFabric headless mode initialized.
+Loading: dag_simple.sif (SIF)
+Network loaded and laid out successfully.
+Network: 6 nodes, 5 links (10 with shadows)
+Running graph analysis...
+  Computing node degrees...
+    Wrote: /app/tests/parity/goldens/analysis_degree_dag_simple/output.degrees (6 nodes)
+  Analysis complete.
+  Wrote: /app/tests/parity/goldens/analysis_degree_dag_simple/output.noa
+  Wrote: /app/tests/parity/goldens/analysis_degree_dag_simple/output.eda
+  Wrote: /app/tests/parity/goldens/analysis_degree_dag_simple/output.bif
+Done. Golden files in: /app/tests/parity/goldens/analysis_degree_dag_simple

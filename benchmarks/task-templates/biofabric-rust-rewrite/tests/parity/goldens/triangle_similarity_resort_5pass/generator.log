@@ -1,0 +1,11 @@
+BioFabric headless mode initialized.
+Loading: triangle.sif (SIF)
+Network loaded and laid out successfully.
+Network: 3 nodes, 3 links (6 with shadows)
+Applying layout: NodeSimilarity (resort/reorder)...
+  passCount = 5
+  Layout applied. Network: 3 nodes, 3 links
+  Wrote: /app/tests/parity/goldens/triangle_similarity_resort_5pass/output.noa
+  Wrote: /app/tests/parity/goldens/triangle_similarity_resort_5pass/output.eda
+  Wrote: /app/tests/parity/goldens/triangle_similarity_resort_5pass/output.bif
+Done. Golden files in: /app/tests/parity/goldens/triangle_similarity_resort_5pass

@@ -1,0 +1,11 @@
+{
+  "schema": "project-task-card/v1",
+  "task": "Resume the existing STEP-03 worktree after a no-change FSE semantics audit. Retain all current source. Produce a concrete symbol-by-symbol RFC 4.2.1.2 trace for the public audio Huffman FSE weight stream: initial State1/State2 values, emitted even/odd weights, each update's field bits, the first overflow, zero-fill next state, and final-state emission order. Cross-check this against the resulting explicit weights and the RFC 4.2.1.3 Kraft calculation. Use that trace to identify one specific semantic defect, if any, in huff_decode_fse_weights, huff_build_table, or the FSE state consumer; do not edit shared primitives or source without a demonstrated discrepancy. Preserve known working paths and do not touch protected files/dictionary behavior or use Docker/Git/harness CLI/libzstd/external decoder/sealed materials. RESULT.json must distinguish a verified correction from an unresolved audit.",
+  "acceptance_criteria": [
+    "A full, internally consistent two-state trace explains the public non-Kraft result or yields a specific RFC-supported repair.",
+    "No speculative changes; only allowed source if a concrete discrepancy is found.",
+    "Truthful result evidence and limitations."
+  ],
+  "deliverables": ["Focused source change only if derived", "Updated truthful RESULT.json"],
+  "reason_for_acceptance_and_deliverables": "The shared table semantics have been checked; a per-symbol interleaving trace is the remaining smallest evidence-producing route."
+}

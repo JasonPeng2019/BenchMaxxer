@@ -1,0 +1,7 @@
+networkAlignment.edgeCoverage	0.6678844238
+networkAlignment.symmetricSubstructureScore	0.2577081785
+networkAlignment.inducedConservedStructure	0.2955875004
+networkAlignment.nodeCorrectness	NaN
+networkAlignment.nodeGroupSimilarity	1.0000000000
+networkAlignment.linkGroupSimilarity	1.0000000000
+networkAlignment.jaccardSimilarity	1.0000000000

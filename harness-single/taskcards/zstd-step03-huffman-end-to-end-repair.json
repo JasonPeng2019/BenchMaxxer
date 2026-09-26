@@ -1,0 +1,10 @@
+{
+  "schema": "project-task-card/v1",
+  "task": "Resume the same isolated STEP-03 worktree. ROOT bridge still reports exactly 3 passing public samples and three zero-output Huffman-compressed samples after the prior header and weight fixes. Retain every valid prior repair and perform an end-to-end RFC 8878 audit across a failing block: literal compressed-header boundaries, Huffman tree weights including the implicit final weight, canonical code bit orientation, one/four backward bitstream decoding, literal payload consumption, then the next sequence-header byte. Correct only a concrete source defect you can derive; do not make speculative broad rewrites. Do not edit protected files or implement dictionaries, and do not use Docker/Git/harness CLI/libzstd/another decompressor/sealed materials. Report any unverified behavior honestly in RESULT.json.",
+  "acceptance_criteria": [
+    "A concrete remaining boundary/bit-order/table defect is identified and corrected against RFC 8878, preserving known working compressed paths.",
+    "Only permitted source changes and a truthful result/v1 report."
+  ],
+  "deliverables": ["Focused src/zstd_decompress.c repair", "Updated truthful RESULT.json"],
+  "reason_for_acceptance_and_deliverables": "Bridge evidence proves the remaining failures are not resolved by the prior narrow Huffman changes; another completion requires an end-to-end, evidence-backed diagnosis."
+}

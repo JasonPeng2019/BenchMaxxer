@@ -1,0 +1,17 @@
+{
+  "schema": "project-task-card/v1",
+  "branch": "lane/biofabric-step03-core-layouts",
+  "base_commit": "fca3e4fc87393c0d8a3cea161c1166c8da0d8180",
+  "task": "Resume the rejected BioFabric STEP-03 lane in place from the current custody commit. A fresh independent review found exactly two material defects. Preserve every committed repair already present and change only crates/core/src/layout/default.rs and crates/core/src/layout/link_group.rs, including their existing private in-module tests, unless a private monitor-compatible helper strictly requires a directly adjacent layout file. Do not modify public types/traits/signatures, manifests, lockfiles, fixtures, external tests, other source paths, Git metadata, or workflow artifacts. Do not invoke Docker, a verifier, or Git. First, make configured link-group matching semantically exact: a configured relation name must not classify an unrelated relation merely because it has that text as an arbitrary prefix or suffix (for example configured `act` must not match relation `activate`). Apply the same rule consistently to annotation construction and column ranking, preserving documented/valid exact matches and deterministic configured-order behavior. Second, ensure DefaultEdgeLayout cancellation is honored through all remaining material per-edge scans: the link-group ordinal/group membership lookup used during placement and both per-link annotation construction scans after placement. Keep public compatibility wrappers if needed, but add monitor-aware private helpers or equivalent indexed state and propagate LayoutError::Cancelled from layout_edges without returning a completed partial layout. Do not hide the work in an unchecked comparator/closure. Add focused in-module regressions for overlapping relation labels and for cancellation requested after final link placement while annotation/group work remains. Run focused non-Docker source checks available to the worker and write a truthful RESULT.json with exact changed paths, evidence, and cache limitations. ROOT will rerun the pinned bridge and use a fresh validation review before accepting.",
+  "acceptance_criteria": [
+    "Only default.rs and link_group.rs, including their existing in-module tests, are newly changed unless a minimal adjacent private helper is genuinely unavoidable; all prior STEP-03 repairs are preserved.",
+    "Configured group membership and ranking use exact relation semantics and do not classify arbitrary prefix/suffix collisions.",
+    "DefaultEdgeLayout can return LayoutError::Cancelled during ordinal/group and annotation scans after placement, without leaking a completed partial result.",
+    "Focused regressions cover both confirmed defects and RESULT.json truthfully records evidence and limitations."
+  ],
+  "deliverables": [
+    "A minimal default-edge/link-group correctness and cancellation repair with private tests.",
+    "A truthful RESULT.json."
+  ],
+  "reason_for_acceptance_and_deliverables": "A fresh independent review found two concrete defects remaining in the broad Step-03 repair. This resume is narrowly restricted to those locations before another bridge check and review."
+}

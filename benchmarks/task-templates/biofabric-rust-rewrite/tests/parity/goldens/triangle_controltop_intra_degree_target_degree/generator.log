@@ -1,0 +1,10 @@
+BioFabric headless mode initialized.
+Loading: triangle.sif (SIF)
+Network loaded and laid out successfully.
+Network: 3 nodes, 3 links (6 with shadows)
+Applying layout: ControlTop...
+  Layout applied. Network: 3 nodes, 3 links
+  Wrote: /app/tests/parity/goldens/triangle_controltop_intra_degree_target_degree/output.noa
+  Wrote: /app/tests/parity/goldens/triangle_controltop_intra_degree_target_degree/output.eda
+  Wrote: /app/tests/parity/goldens/triangle_controltop_intra_degree_target_degree/output.bif
+Done. Golden files in: /app/tests/parity/goldens/triangle_controltop_intra_degree_target_degree

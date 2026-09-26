@@ -1,0 +1,25 @@
+BioFabric headless mode initialized.
+Loading: CaseStudy-IV-SmallYeast.gw (GW)
+Network loaded and laid out successfully.
+Network: 1004 nodes, 8323 links (16646 with shadows)
+Running alignment pipeline...
+  Graph1: 16646 links, 0 loners
+  Graph2: 19974 links, 0 loners
+  Alignment: 1004 mapped nodes
+  Perfect alignment: 1004 mapped nodes
+  View type: GROUP
+  Merged: 20288 links, 0 loners
+  Scores computed: 7 metrics
+    networkAlignment.edgeCoverage = 0.9811366093956506
+    networkAlignment.symmetricSubstructureScore = 0.8050078864353313
+    networkAlignment.inducedConservedStructure = 0.8176629618504055
+    networkAlignment.nodeCorrectness = 1.0
+    networkAlignment.nodeGroupSimilarity = 1.0
+    networkAlignment.linkGroupSimilarity = 1.0
+    networkAlignment.jaccardSimilarity = 1.0
+  Alignment network built: 1004 nodes, 10144 links
+  Wrote: /app/tests/parity/goldens/align_casestudy_iv_ng_nc/output.noa
+  Wrote: /app/tests/parity/goldens/align_casestudy_iv_ng_nc/output.eda
+  Wrote: /app/tests/parity/goldens/align_casestudy_iv_ng_nc/output.bif
+  Wrote: /app/tests/parity/goldens/align_casestudy_iv_ng_nc/output.scores
+Done. Golden files in: /app/tests/parity/goldens/align_casestudy_iv_ng_nc

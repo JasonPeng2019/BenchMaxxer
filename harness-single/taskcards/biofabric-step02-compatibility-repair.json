@@ -1,0 +1,17 @@
+{
+  "schema": "project-task-card/v1",
+  "branch": "lane/biofabric-step02-network-interchange",
+  "base_commit": "1c37d1e192d2bdc9d224229dfa66e5353ef2ef6f",
+  "task": "Resume the rejected BioFabric STEP-02 lane in place from the current custody commit. Preserve all existing XML/GW repairs and change only crates/core/src/io/xml.rs and crates/core/src/io/gw.rs, including their existing private in-module tests. Do not modify public types, manifests, lockfiles, fixtures, external tests, other source paths, Git metadata, or workflow artifacts. Do not invoke Docker, a verifier, or Git. A fresh independent review found five concrete compatibility/validation defects. Repair them with the smallest complete behavior: (1) GW parser must skip only raw first-column `#` comment records at all legal positions—including before header, between declared records, and after them—while retaining physical line numbers for errors and retaining complete-record validation for non-comment lines; (2) XML parser must track parent/context for ignored standard BIF color containers too, so modeled top-level elements such as nodes/links/session leaves/plugin containers cannot be accepted inside colors/colorSet/color; preserve valid established BIF color hierarchy and node/drain nesting; (3) opaque plugInDataSets payload must preserve raw lines and must not close on a line equal to `</plugInDataSets>` when that line is inside a syntactically valid multiline XML comment or CDATA in the opaque payload; do not start validating opaque plugin entities/content; (4) XML attribute write/read must losslessly handle tab/newline/carriage-return using legal numeric XML entities, preserve non-ASCII UTF-8, reject XML-disallowed scalar control characters on write and read, and avoid generating multiline attributes; (5) XML declarations are legal only once before root content, never inside or after the BioFabric root. Add focused private regressions for all five cases. Preserve the known working full DisplayOptions/layout state roundtrip, standard BIF annotations/drain zones/linkGroups/metadata/scores, raw plugin data fidelity, root-context handling, malformed leaf rejection, and strict GW field consumption. Run focused non-Docker source checks available to the worker and write truthful RESULT.json with paths, tests, and cache limitations. ROOT will run the pinned bridge and a fresh review before accepting.",
+  "acceptance_criteria": [
+    "Only xml.rs and gw.rs plus their existing in-module tests are newly changed; all previous Step-02 behavior remains intact.",
+    "Legal first-column GW comments are ignored without weakening non-comment record validation or diagnostics.",
+    "XML rejects illegal modeled parent/declaration/scalar conditions, handles opaque plugin comments/CDATA correctly, and round-trips XML-representable whitespace/non-ASCII field values without multiline output.",
+    "Focused regressions cover all five confirmed defects and RESULT.json truthfully reports evidence and limitations."
+  ],
+  "deliverables": [
+    "A minimal XML/GW compatibility repair with private regression coverage.",
+    "A truthful RESULT.json."
+  ],
+  "reason_for_acceptance_and_deliverables": "Fresh independent review identified five local, evidence-backed parser/writer compatibility and validation gaps after the prior XML/GW contract repair."
+}

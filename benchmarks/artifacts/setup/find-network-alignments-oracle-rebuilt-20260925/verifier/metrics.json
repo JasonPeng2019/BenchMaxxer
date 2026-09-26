@@ -1,0 +1,29 @@
+{
+  "partial_score": 0.9766937896708888,
+  "primary_alignment": {
+    "aligned_edges": 12879,
+    "g1": "DMelanogaster",
+    "g1_edges": 34753,
+    "g2": "HSapiens",
+    "induced_edges_g2": 18998,
+    "min_s3": 0.25,
+    "observed_s3": 0.31510569583088666,
+    "partial_score": 0.9300813690126665,
+    "target_s3": 0.32
+  },
+  "yeast_alignment": {
+    "aligned_edges": 10311,
+    "g1": "Yeast2KReduced",
+    "g1_edges": 16063,
+    "g2": "SC",
+    "induced_edges_g2": 12929,
+    "min_nc": 0.22999999999999998,
+    "min_s3": 0.48000000000000004,
+    "nc_partial_score": 1.0,
+    "observed_nc": 0.31021437578814626,
+    "observed_s3": 0.5519511803436646,
+    "s3_partial_score": 1.0,
+    "target_nc": 0.3,
+    "target_s3": 0.55
+  }
+}

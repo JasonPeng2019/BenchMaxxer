@@ -1,0 +1,12 @@
+BioFabric headless mode initialized.
+Loading: self_loop.sif (SIF)
+Network loaded and laid out successfully.
+Network: 3 nodes, 3 links (5 with shadows)
+Running graph analysis...
+  Computing node degrees...
+    Wrote: /app/tests/parity/goldens/analysis_degree_self_loop/output.degrees (3 nodes)
+  Analysis complete.
+  Wrote: /app/tests/parity/goldens/analysis_degree_self_loop/output.noa
+  Wrote: /app/tests/parity/goldens/analysis_degree_self_loop/output.eda
+  Wrote: /app/tests/parity/goldens/analysis_degree_self_loop/output.bif
+Done. Golden files in: /app/tests/parity/goldens/analysis_degree_self_loop

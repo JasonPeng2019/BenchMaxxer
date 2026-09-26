@@ -1,0 +1,7 @@
+{
+  "schema": "project-task-card/v1",
+  "task": "Resume only src/zstd_entropy.inc to repair the RFC 8878 Huffman literals path. ROOT's current integrated evidence passes simple/img.png/repetitive but audio/img.bmp/video fail in compressed literals. Audit and correct Huffman tree headers (direct and FSE-compressed weights), weight-to-prefix conversion, reverse bitstream orientation, and one/four-stream boundaries. Preserve the existing declared FSE seam and do not edit shared headers, dispatcher, Makefile, harness, tests, samples, specs, or other files. Compile/test if available; commit your owned file if sandbox permits and write RESULT.json.",
+  "acceptance_criteria": ["Only src/zstd_entropy.inc changes.", "The Huffman literal implementation follows RFC 8878 direct/FSE tree and one/four-stream rules and integrates through existing API."],
+  "deliverables": ["Repaired src/zstd_entropy.inc", "RESULT.json with actual checks and integration notes"],
+  "reason_for_acceptance_and_deliverables": "A focused repair of the demonstrated entropy failure has a clear owner and avoids changing already passing frame/sequence paths." 
+}

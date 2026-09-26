@@ -1,0 +1,9 @@
+{
+  "schema": "project-task-card/v1",
+  "task": "Implement RFC 8878 entropy support in the assigned isolated worktree. Own only src/zstd_entropy.c and optional entropy-private header; consume the frozen src/zstd_internal.h seam. Implement bounded backward bitstream, Huffman weights/tree decoding and one/four-stream literals, FSE normalized counts/table construction and predefined/RLE/custom/repeat sequence table decoding as feasible. Do not edit Makefile, public API/harness, tests, samples, RFC, frame controller, or sequence/dictionary file. Commit work and write RESULT.json through the native harness.",
+  "acceptance_criteria": ["The fragment compiles when included by root integration source.", "Entropy readers reject invalid bounds/table state and provide required literal/sequence decode behavior."],
+  "deliverables": ["src/zstd_entropy.c", "Optional entropy-private header", "Native lane result metadata."],
+  "reason_for_acceptance_and_deliverables": "Entropy coding is a substantial independent decoder domain with a frozen integration seam.",
+  "branch": "lane/zstd-entropy",
+  "base_commit": "9a94907319f521596eed62a8e6ae08236789f6a5"
+}

@@ -1,0 +1,19 @@
+{
+  "schema": "project-task-card/v1",
+  "branch": "lane/biofabric-step03-core-layouts",
+  "base_commit": "0573a459dcb2593276a48830f55c6d98d6e55e57",
+  "task": "Implement STEP-03 of the BioFabric Rust rewrite: complete fixed core layout plumbing, default layouts, and specialized layout algorithms. You own only crates/core/src/layout/**. Preserve every existing public type, trait, method signature, Cargo manifest/lockfile, model/I-O/alignment/CLI source, protected tests/fixtures/goldens, and workflow artifacts. Do not use Docker, Git add/commit, a verifier, benchmark/results paths, or operator-only runtime paths. Implement from visible source/tests/fixtures and fixed APIs: the two-phase row/column pipeline, LayoutBuildData, link grouping/sort keys/column assignment, default node/edge layout, NetworkLayout extraction, and similarity, hierarchy, cluster, control-top, set, and World Bank algorithms. Preserve deterministic tie-breaking, directed/DAG preconditions, supplied fixed orders and parameters, regular/shadow columns and spans, annotations, cancellation/progress semantics, and public layout result fields. Do not duplicate or alter STEP-01 graph/model logic; use its public behavior. Use test-first for focused source-module observable contracts where practical, add tests only inside owned layout source modules, and truthfully record red/green checks if they can run locally. Read visible layout/parity fixtures and callers before choosing ordering details. Report cross-owner ambiguity rather than editing outside layout/**. Leave allowed source edits and a truthful RESULT.json; ROOT will run all bridge evidence after exit.",
+  "acceptance_criteria": [
+    "All changes are confined to crates/core/src/layout/**, with any new tests confined to owned source modules; no public API or manifest/lockfile changes occur.",
+    "The fixed two-phase layout traits and data types construct structurally coherent, deterministic NetworkLayout results with rows, columns, spans, shadows, groups, and annotations consistent with visible contracts.",
+    "Default, fixed-order, similarity, hierarchy, cluster, control-top, set, and World Bank routes honor their supplied parameters/preconditions rather than silently using unrelated behavior.",
+    "NetworkLayout extraction compresses retained rows/columns while preserving surviving node/link semantics, and progress/cancellation behavior remains usable through the fixed monitor interfaces.",
+    "Each added source-module test protects a concrete layout behavior, and RESULT.json accurately reports paths, checks actually run, uncertainty, and blockers."
+  ],
+  "deliverables": [
+    "Completed implementation under crates/core/src/layout/** for all fixed layout surfaces.",
+    "Narrow layout-source tests for selected observable contracts where useful.",
+    "A truthful RESULT.json in the lane worktree."
+  ],
+  "reason_for_acceptance_and_deliverables": "STEP-03 owns the shared layout contract consumed by sessions, alignment, parity formatting, and CLI workflows. Its source path is disjoint from STEP-02 I/O, so concurrent native implementation is safe after the accepted network foundation, while keeping one owner for all mutually dependent layout types and algorithms."
+}

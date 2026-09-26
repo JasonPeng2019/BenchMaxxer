@@ -1,0 +1,17 @@
+{
+  "schema": "project-task-card/v1",
+  "branch": "lane/biofabric-step03-core-layouts",
+  "base_commit": "2dcfede7fe145d528eb1d0c9945df350a7446277",
+  "task": "Resume the rejected BioFabric STEP-03 lane in place from the current custody commit. Preserve all committed repairs and change only crates/core/src/layout/cluster.rs, set.rs, and, if needed solely to expose an existing private monitor-aware helper at crate scope, default.rs; include only their existing private in-module tests. Do not modify public types/traits/signatures, manifests, lockfiles, fixtures, external tests, other source paths, Git metadata, or workflow artifacts. Do not invoke Docker, a verifier, or Git. A fresh review found two concrete cancellation escapes after a monitored DefaultEdgeLayout phase returns: (1) NodeClusterEdgeLayout scans node rows/builds annotations after DefaultEdgeLayout (and rearrange_between calls the public unmonitored two-pass annotation helper) without honoring monitor cancellation; (2) SetLayout mutates every placed link's directed field without checking monitor. Make the smallest complete corrections: check monitor before/during every material cluster annotation/rearrangement scan, use the existing monitor-aware DefaultEdgeLayout annotation path from rearrange_between (changing it only to crate-private visibility if necessary), and propagate LayoutError::Cancelled rather than returning a completed/partial layout. Similarly check monitor before/during SetLayout's post-placement link loop, including behavior when the placement result is empty. Keep successful layouts behavior-identical. Add focused in-module threshold-monitor regressions that force cancellation only after DefaultEdgeLayout completes and prove Clustered edge and Set edge layouts return Cancelled. Run focused non-Docker checks available to the worker and write truthful RESULT.json listing paths, tests, and cache limitations. ROOT will run the pinned bridge and a fresh review before acceptance.",
+  "acceptance_criteria": [
+    "Only cluster.rs, set.rs, and a necessary crate-private default.rs helper visibility change are newly changed; all prior Step-03 repairs remain intact.",
+    "Clustered and Set edge layouts propagate monitor cancellation during their post-default material scans and do not return a completed partial layout.",
+    "Successful cluster/set output behavior remains unchanged, and private tests exercise phase-specific post-default cancellation.",
+    "RESULT.json truthfully reports changed paths, source checks, and limitations."
+  ],
+  "deliverables": [
+    "A minimal wrapper-layout cancellation repair with focused in-module regressions.",
+    "A truthful RESULT.json."
+  ],
+  "reason_for_acceptance_and_deliverables": "Fresh independent validation confirmed previous default-edge fixes but identified two material cancellation escapes in wrapper layouts. This resume is restricted to those exact findings."
+}

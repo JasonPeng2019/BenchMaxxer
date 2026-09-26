@@ -1,0 +1,8 @@
+BioFabric headless mode initialized.
+Loading: dense_clique.sif (SIF)
+Network loaded and laid out successfully.
+Network: 6 nodes, 15 links (30 with shadows)
+  Wrote: /app/tests/parity/goldens/dense_clique_default/output.noa
+  Wrote: /app/tests/parity/goldens/dense_clique_default/output.eda
+  Wrote: /app/tests/parity/goldens/dense_clique_default/output.bif
+Done. Golden files in: /app/tests/parity/goldens/dense_clique_default

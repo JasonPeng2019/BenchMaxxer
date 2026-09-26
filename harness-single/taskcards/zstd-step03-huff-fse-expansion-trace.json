@@ -1,0 +1,14 @@
+{
+  "schema": "project-task-card/v1",
+  "task": "Resume the existing isolated STEP-03 lane from the now-proven 3/6 bridge baseline. ROOT exact evidence: img.png, repetitive, simple pass; audio.wav, img.bmp, and video fail with zero output. Prior tracing localizes the remaining path to FSE-compressed Huffman-weight expansion. Trace an actual visible failing literals-tree payload (start with audio.wav.zst) through fse_read_table, huff_decode_fse_weights, zero-padding/end-state handling, and huff_build_table. Establish a concrete RFC 8878 §4.2.1.2 invariant before editing. Implement only a minimal directly justified fix, if one is established; otherwise make no source change and report the trace/blocker. Preserve the proven reverse FSE write-order reconstruction and forward Table 20 parser. Do not touch dictionaries/protected files. Do not run Docker/Git/harness CLI/libzstd/another decoder/sealed materials.",
+  "acceptance_criteria": [
+    "Produces a concrete trace for a visible failing FSE-compressed Huffman-weight payload.",
+    "Any correction preserves the exact repetitive.zst FSE state-consumption invariant and forward table-description semantics.",
+    "Only allowed decoder source is changed and RESULT.json is truthful."
+  ],
+  "deliverables": [
+    "RESULT.json with trace evidence",
+    "Only if justified, focused src/zstd_decompress.c correction"
+  ],
+  "reason_for_acceptance_and_deliverables": "The first compressed-block path is now evidenced, while all remaining public failures share the FSE-compressed Huffman-weight path. A sample-backed trace is required before any additional entropy-table change."
+}

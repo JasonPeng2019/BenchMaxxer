@@ -1,0 +1,7 @@
+{
+  "schema": "project-task-card/v1",
+  "task": "Resume only src/zstd_sequences.inc and src/zstd_dict.inc. ROOT now guarantees ZState.out_start is the lower bound of output history (commit a714552, supplied at integration) and entropy exports zstd_fse_read_table, zstd_fse_init, and zstd_fse_symbol as previously specified. Implement bounded RFC compressed-block sequences, literal handoff, lengths, repeat offsets, overlapping copies from [out_start,out), dictionary history, trained dictionary parsing/preloaded entropy/offset state, and declared exports. Do not edit any frozen/shared file. Commit owned source if possible and write RESULT.json.",
+  "acceptance_criteria": ["Only the two owned fragments change and use out_start to prevent history underflow.", "Required sequence and trained-dictionary behaviors are implemented against the stated FSE seam."],
+  "deliverables": ["Owned sequence and dictionary fragments", "RESULT.json with integration notes and actual checks"],
+  "reason_for_acceptance_and_deliverables": "The only blocking state-boundary gap is now explicit, allowing safe implementation." 
+}

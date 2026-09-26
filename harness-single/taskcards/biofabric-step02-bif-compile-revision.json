@@ -1,0 +1,16 @@
+{
+  "schema": "project-task-card/v1",
+  "branch": "lane/biofabric-step02-network-interchange",
+  "base_commit": "0573a459dcb2593276a48830f55c6d98d6e55e57",
+  "task": "Resume STEP-02 only to repair the immediate compile failure in the existing BIF grammar repair and retain all valid prior I/O/session/XML work. Edit only crates/core/src/io/** (ordinarily xml.rs and its owned tests); do not edit public types/signatures, Cargo manifests/lockfile, model/layout/alignment/CLI source, protected tests, fixtures, goldens, workflow files, or unrelated I/O behavior. Do not use Docker, Git add/commit, a verifier, benchmark/results paths, or operator-only runtime paths. ROOT's authoritative pinned bridge found E0308 at crates/core/src/io/xml.rs:787: the new standard BIF annotation test compares a tuple containing &String fields to a tuple of &str literals. Correct this owned test/value comparison idiom without weakening its contract, then audit the new XML tests for other type/borrow/compile mistakes. Preserve the already implemented standard <annot tag> and drain-zone behavior; do not remove tests or back out grammar support merely to compile. Attempt the strongest non-Docker local test/compile evidence available and record exact results in RESULT.json; ROOT will rerun the bridge suite. Leave only allowed source edits and a truthful RESULT.json.",
+  "acceptance_criteria": [
+    "Every edit remains under crates/core/src/io/** and any new tests stay in owned source modules; no public API, manifest/lockfile, protected test, fixture, golden, or unrelated source change occurs.",
+    "The standard BIF annotation/drain-zone tests compile and still assert the full grammar/state contracts rather than reducing coverage.",
+    "No analogous test compile errors remain in the current owned XML test block, and RESULT.json truthfully records actual checks, remaining uncertainty, and blockers."
+  ],
+  "deliverables": [
+    "A focused compilable repair under crates/core/src/io/**.",
+    "A truthful RESULT.json in the lane worktree."
+  ],
+  "reason_for_acceptance_and_deliverables": "The visible-BIF grammar implementation cannot advance until its own owned test block compiles. A bounded resume preserves the repaired behavior while correcting the smallest concrete blocker."
+}

@@ -1,0 +1,4 @@
+interface:
+  display_name: "Project Specification"
+  short_description: "Define detailed product behavior before planning."
+  default_prompt: "Use $project-specification to turn this request into a stable, detailed SPEC.md plus BEHAVIOR-* package that preserves dictated product boundaries, behavior, and acceptance."

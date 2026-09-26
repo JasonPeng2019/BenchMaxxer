@@ -1,0 +1,7 @@
+{
+  "schema": "project-task-card/v1",
+  "task": "Resume the assigned implementation now that ROOT defined the explicit entropy seam. Implement only src/zstd_sequences.inc and src/zstd_dict.inc. ROOT integration will provide zstd_fse_read_table(ZR*,ZFseTable*,unsigned,unsigned), zstd_fse_init(ZBitR*,const ZFseTable*,ZFseState*), and zstd_fse_symbol(ZBitR*,ZFseState*,u8*) from entropy. Implement compressed-block literal/sequence orchestration, RFC sequence headers/extra bits/repeat offsets, overlap/history copying, trained dictionary parsing/preloaded entropy/repeat state, and zstd_load_dictionary. Do not edit frozen header, dispatcher, Makefile, harness, specs, or external files. Commit owned files and write RESULT.json.",
+  "acceptance_criteria": ["Both owned fragments implement their declared exports and are the only product edits.", "Sequence output and dictionary state use the explicit FSE seam with bounded failure behavior."],
+  "deliverables": ["Committed src/zstd_sequences.inc and src/zstd_dict.inc", "RESULT.json with commit, checks, and remaining integration notes"],
+  "reason_for_acceptance_and_deliverables": "The prior attempt was blocked only by a now-resolved interface gap; this card states the usable contract." 
+}

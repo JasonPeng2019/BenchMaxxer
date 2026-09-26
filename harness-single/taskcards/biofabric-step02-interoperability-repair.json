@@ -1,0 +1,18 @@
+{
+  "schema": "project-task-card/v1",
+  "branch": "lane/biofabric-step02-network-interchange",
+  "base_commit": "72ca8d568b35a76aaa22f20de87075df50b7fdc7",
+  "task": "Resume the rejected BioFabric STEP-02 lane in place from the current custody commit. Preserve all existing interchange repairs and change only crates/core/src/io/xml.rs and crates/core/src/io/sif.rs, including their existing private in-module tests. Do not modify public types, manifests, lockfiles, fixtures, external tests, other source paths, Git metadata, or workflow artifacts. Do not invoke Docker, a verifier, or Git. A fresh independent read-only review found three concrete interoperability defects. Repair them with the smallest complete behavior: (1) the XML/BIF reader must process modeled XML by tokens rather than assuming one construct per physical line. It must accept compact valid BIF such as adjacent root/container/leaf tokens, XML declarations immediately followed by the root, comments or processing instructions adjacent to modeled content, and XML Misc after the closed root; it must not silently skip modeled content that follows a same-line comment. Retain strict exactly-one-root, parent/context, malformed-leaf, scalar/entity, declaration, and full-state behavior. Do not add dependencies or weaken malformed-input rejection. The opaque plugInDataSets payload remains raw-preserved as existing behavior requires; handle it carefully rather than treating its contents as ordinary modeled XML. (2) raw opaque plugin comment/CDATA lines containing literal <NetAlignMeasure ...> text must never be reinterpreted as real alignment-score markup or cause score parsing errors; only genuine visible score elements may influence alignment_scores, while raw payload fidelity remains intact. (3) SIF writer/reader must not silently corrupt an accepted model field that its whitespace-delimited grammar cannot round-trip. Before emitting a SIF record, reject unsafe whitespace/control-containing source, target, and relation fields using the established I/O error contract (do not invent an incompatible escaping grammar); preserve valid ordinary records and existing strict reader semantics. Add focused private regressions for compact/comment-adjacent/post-root XML constructs, opaque plugin pseudo-scores, and unsafe SIF serialization. Run focused non-Docker source checks available to the worker and write a truthful RESULT.json with paths, tests, and cache limitations. ROOT will run the pinned bridge and another independent review before acceptance.",
+  "acceptance_criteria": [
+    "Only xml.rs and sif.rs plus their private in-module tests are newly changed; prior STEP-02 contracts remain intact.",
+    "Valid compact and comment/PI-adjacent BIF syntax is handled without accepting malformed structure or losing modeled content; XML Misc after root is accepted.",
+    "Opaque plugin pseudo-markup cannot alter alignment scores, and raw plugin payload handling remains compatible.",
+    "SIF output rejects fields the existing grammar cannot safely round-trip rather than silently changing graph data.",
+    "Focused regressions and a truthful RESULT.json document the repairs."
+  ],
+  "deliverables": [
+    "A minimal XML/SIF interoperability repair with private regression coverage.",
+    "A truthful RESULT.json."
+  ],
+  "reason_for_acceptance_and_deliverables": "The completed XML/GW patch passed source checks but fresh independent review identified three bounded compatibility gaps within the existing STEP-02 interchange contract."
+}

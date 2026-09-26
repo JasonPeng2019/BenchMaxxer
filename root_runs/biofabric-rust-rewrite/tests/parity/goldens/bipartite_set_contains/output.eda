@@ -1,0 +1,13 @@
+Link Column
+L1 (pp) R2 = 0
+L1 (pp) R1 = 1
+L2 (pp) R1 = 2
+L2 (pp) R3 = 3
+L3 (pp) R2 = 4
+L3 (pp) R3 = 5
+L1 shdw(pp) R2 = 6
+L3 shdw(pp) R2 = 7
+L1 shdw(pp) R1 = 8
+L2 shdw(pp) R1 = 9
+L2 shdw(pp) R3 = 10
+L3 shdw(pp) R3 = 11

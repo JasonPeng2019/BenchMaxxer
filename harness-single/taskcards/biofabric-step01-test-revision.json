@@ -1,0 +1,15 @@
+{
+  "schema": "project-task-card/v1",
+  "task": "Resume BioFabric STEP-01 only to strengthen the two confirmed source-module test gaps from the final independent review. You own crates/core/src/model/network.rs only. Preserve all production behavior, existing public types/traits/method signatures, manifests/lockfile, protected tests/fixtures/goldens, and all unrelated files. Do not use Docker, Git add/commit, a verifier, benchmark/results paths, or operator-only runtime paths. First inspect the current tests and implementation. Then make the smallest test-only correction unless a test exposes a genuine defect: (1) in the ordinary-node test, after making a node connected, re-add that endpoint with the ordinary add_node(Node::new(...)) API as well as/additionally to the existing add_node_by_id case and assert lone_nodes remains empty; (2) make the parent in subnetwork metadata coverage structurally non-bipartite (for example a directed odd cycle), assert its metadata is Some(false), retain a singleton or simple bipartite induced graph, and assert the child has derived bipartite Some(true) alongside its directed/DAG checks. Keep the test deterministic and narrowly scoped. Run only safe local checks actually available; write a truthful RESULT.json. ROOT will run pinned bridge checks after the worker exits.",
+  "acceptance_criteria": [
+    "All edits remain within crates/core/src/model/network.rs and do not change production behavior or any public signature.",
+    "A focused test proves both add_node and add_node_by_id do not re-add an already connected endpoint to lone_nodes.",
+    "A focused extraction test proves bipartite metadata is newly derived by distinguishing a non-bipartite parent from a bipartite retained child.",
+    "RESULT.json truthfully states edits and checks actually run."
+  ],
+  "deliverables": [
+    "Strengthened deterministic source-module network tests only.",
+    "A truthful RESULT.json in the lane worktree."
+  ],
+  "reason_for_acceptance_and_deliverables": "The preceding independent review found no production defect but identified two evidence gaps in the new invariant tests. This minimal same-lane resume closes those gaps before accepting the shared network foundation."
+}

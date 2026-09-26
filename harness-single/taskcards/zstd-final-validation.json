@@ -1,0 +1,7 @@
+{
+  "schema": "project-task-card/v1",
+  "task": "Frozen validation lane for the already integrated main commit. Do not edit any product or protected file and do not claim decoder completion. Preserve the exact integrated source so ROOT can run the approved bridge against this lane and record the known partial public result.",
+  "acceptance_criteria": ["No product changes are made.", "Lane remains an exact validation copy of the integrated main source."],
+  "deliverables": ["Untouched validation worktree"],
+  "reason_for_acceptance_and_deliverables": "The approved bridge mounts only runtime lanes; this lane provides an exact immutable mount of the integrated source for final public validation."
+}

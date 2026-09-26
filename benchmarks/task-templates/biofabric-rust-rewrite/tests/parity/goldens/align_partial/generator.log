@@ -1,0 +1,16 @@
+BioFabric headless mode initialized.
+Loading: align_net1.sif (SIF)
+Network loaded and laid out successfully.
+Network: 3 nodes, 3 links (6 with shadows)
+Running alignment pipeline...
+  Graph1: 6 links, 0 loners
+  Graph2: 4 links, 0 loners
+  Alignment: 2 mapped nodes
+  View type: GROUP
+  Merged: 8 links, 0 loners
+  Scores computed: 0 metrics
+  Alignment network built: 4 nodes, 4 links
+  Wrote: /app/tests/parity/goldens/align_partial/output.noa
+  Wrote: /app/tests/parity/goldens/align_partial/output.eda
+  Wrote: /app/tests/parity/goldens/align_partial/output.bif
+Done. Golden files in: /app/tests/parity/goldens/align_partial

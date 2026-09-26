@@ -1,0 +1,9 @@
+{
+  "schema": "project-task-card/v1",
+  "task": "Implement RFC 8878 sequence execution and dictionary state in the assigned isolated worktree. Own only src/zstd_sequences.c and optional dictionary-private header; consume frozen src/zstd_internal.h. Implement literal/match application, overlapping matches, repeat-offset rules, bounds checks, raw dictionary history and trained-dictionary preloaded state interfaces. Do not edit Makefile, public API/harness, tests, samples, RFC, frame controller, or entropy file. Commit work and write RESULT.json through the native harness.",
+  "acceptance_criteria": ["The fragment compiles when included by root integration source.", "Sequence/history operations enforce offsets and output bounds while implementing overlap and repeat-offset semantics."],
+  "deliverables": ["src/zstd_sequences.c", "Optional dictionary-private header", "Native lane result metadata."],
+  "reason_for_acceptance_and_deliverables": "Sequence and dictionary state can proceed independently behind the frozen context contract.",
+  "branch": "lane/zstd-sequences",
+  "base_commit": "9a94907319f521596eed62a8e6ae08236789f6a5"
+}

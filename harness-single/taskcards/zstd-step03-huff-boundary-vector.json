@@ -1,0 +1,7 @@
+{
+  "schema": "project-task-card/v1",
+  "task": "Resume the existing terminal STEP-03 lane. All prior audits leave the public Huffman FSE weight expansion unresolved at 3/6 bridge passes. Do not alter shared FSE or Huffman code speculatively. Derive the smallest RFC 8878-consistent boundary vector or manual table/state example that distinguishes the remaining candidate bit/state interpretations in huff_decode_fse_weights, and use it to identify a single concrete implementation discrepancy. If no discrepancy can be derived, leave source unchanged and report the precise unresolved invariant; if one is found, make only the directly supported repair. Preserve raw/predefined public behavior, do not touch dictionaries/protected files, and do not use Docker, Git/harness CLI, libzstd, another decoder, or sealed material. Report truthfully in RESULT.json.",
+  "acceptance_criteria": ["A concrete boundary derivation identifies the remaining FSE-Huffman discrepancy or documents why no safe source change follows.", "No speculative shared primitive edit."],
+  "deliverables": ["Focused source change only if derived", "Updated truthful RESULT.json"],
+  "reason_for_acceptance_and_deliverables": "The run needs discriminating evidence before another shared entropy modification; the bridge will evaluate any derived correction." 
+}

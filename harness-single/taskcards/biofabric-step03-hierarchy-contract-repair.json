@@ -1,0 +1,17 @@
+{
+  "schema": "project-task-card/v1",
+  "branch": "lane/biofabric-step03-core-layouts",
+  "base_commit": "9042c2af8e57f239c1b9a348d3dea7ea8112412c",
+  "task": "Resume the rejected BioFabric STEP-03 lane in place from the current custody commit. Preserve all committed repairs and change only crates/core/src/layout/hierarchy.rs plus its existing private in-module tests. Do not modify public types/traits/signatures, manifests, lockfiles, fixtures, external tests, other source paths (including analysis/), Git metadata, or workflow artifacts. Do not invoke Docker, a verifier, or Git. Fresh independent review found two material HierDAG defects. First, a valid LayoutParams.start_node must deterministically anchor a successful HierDAG node order at row zero, matching the established layout convention; missing nodes must leave order unchanged. Second, the monitored HierDAG path must observe cancellation in all material criteria/annotation phases: do not call unmonitored DAG validation from NodeLayout::layout_nodes; implement a private monitor-aware criteria/DAG validation path in hierarchy.rs that checks directedness and graph traversal work, returns LayoutError::Cancelled on cancellation, and preserves the existing CriteriaNotMet semantics for invalid directed/cyclic graphs. Also check monitor immediately after DefaultEdgeLayout returns in HierDAGEdgeLayout and at entry to the monitored annotation helper, including empty-order behavior, so an observed cancellation never returns a completed/partial layout. Preserve the existing public unmonitored wrapper and API shape. Add focused private regressions for valid HierDAG start_node, cancellation during DAG validation, and cancellation after DefaultEdgeLayout completes on an empty DAG/annotation path. Run focused non-Docker source checks available to the worker and write truthful RESULT.json with exact changed paths, checks, and cache limitations. ROOT will run the pinned bridge and fresh review before acceptance.",
+  "acceptance_criteria": [
+    "Only hierarchy.rs and its existing in-module tests are newly modified; all preceding Step-03 repairs remain intact.",
+    "Valid HierDAG start_node anchors the order, while missing anchors preserve the natural order.",
+    "Observed cancellation during criteria/DAG traversal and post-default/empty annotation work returns LayoutError::Cancelled, not a completed partial layout; non-cancelled directed DAG behavior remains intact.",
+    "RESULT.json truthfully records exact source checks, paths, and limitations."
+  ],
+  "deliverables": [
+    "A minimal HierDAG start-node and monitored criteria/annotation repair with private regressions.",
+    "A truthful RESULT.json."
+  ],
+  "reason_for_acceptance_and_deliverables": "The final independent review found two concrete remaining HierDAG contract gaps after all other layout correctness/cancellation repairs."
+}

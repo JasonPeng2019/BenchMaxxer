@@ -1,0 +1,10 @@
+BioFabric headless mode initialized.
+Loading: triangle.sif (SIF)
+Network loaded and laid out successfully.
+Network: 3 nodes, 3 links (6 with shadows)
+Extracting subnetwork for nodes: [A, B]
+  Subnetwork extracted: 2 nodes, 1 links
+  Wrote: /app/tests/parity/goldens/triangle_extract_AB/output.noa
+  Wrote: /app/tests/parity/goldens/triangle_extract_AB/output.eda
+  Wrote: /app/tests/parity/goldens/triangle_extract_AB/output.bif
+Done. Golden files in: /app/tests/parity/goldens/triangle_extract_AB

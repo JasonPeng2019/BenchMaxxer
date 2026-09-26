@@ -1,0 +1,10 @@
+BioFabric headless mode initialized.
+Loading: multi_relation.sif (SIF)
+Network loaded and laid out successfully.
+Network: 5 nodes, 6 links (12 with shadows)
+Applying fixed node order from: /noa/multi_relation_shuffled.noa
+  Fixed node order applied.
+  Wrote: /app/tests/parity/goldens/multi_relation_fixed_noa/output.noa
+  Wrote: /app/tests/parity/goldens/multi_relation_fixed_noa/output.eda
+  Wrote: /app/tests/parity/goldens/multi_relation_fixed_noa/output.bif
+Done. Golden files in: /app/tests/parity/goldens/multi_relation_fixed_noa

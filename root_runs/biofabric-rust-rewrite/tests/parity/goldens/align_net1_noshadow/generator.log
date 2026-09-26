@@ -1,0 +1,10 @@
+BioFabric headless mode initialized.
+Loading: align_net1.sif (SIF)
+Network loaded and laid out successfully.
+Network: 3 nodes, 3 links (6 with shadows)
+Applying --no-shadows: toggling shadow display OFF...
+  Shadow toggle rebuild complete. Links now: 3 (no shadows)
+  Wrote: /app/tests/parity/goldens/align_net1_noshadow/output.noa
+  Wrote: /app/tests/parity/goldens/align_net1_noshadow/output.eda
+  Wrote: /app/tests/parity/goldens/align_net1_noshadow/output.bif
+Done. Golden files in: /app/tests/parity/goldens/align_net1_noshadow

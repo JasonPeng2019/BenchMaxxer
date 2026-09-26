@@ -1,0 +1,9 @@
+{
+  "schema": "project-task-card/v1",
+  "task": "Resume only the demonstrated RFC 8878 reverse-bit/FSE sequence failure. In the existing entropy lane, analyze public repetitive.zst: its raw literals decode, then predefined sequence mode bytes 01 00 CF 3B 7F B9 fail before execution. Correct backward bit ordering/state initialization, predefined table handling, and terminal consumption needed for valid RFC sequence decoding. Keep ownership to src/zstd_entropy.c/.h and do not alter protected files or other fragments. Write RESULT.json; source custody remains ROOT-managed.",
+  "acceptance_criteria": ["The targeted predefined-FSE sequence path no longer rejects the visible repetitive sample due to entropy state parsing.", "The fragment remains bounded and compilable as an included integration fragment."],
+  "deliverables": ["Focused entropy source correction", "Native RESULT.json with changed paths and checks."],
+  "reason_for_acceptance_and_deliverables": "The public failure isolates a small entropy decoding defect, so resume preserves prior implementation and targets only its direct cause.",
+  "branch": "lane/zstd-entropy",
+  "base_commit": "9a94907319f521596eed62a8e6ae08236789f6a5"
+}

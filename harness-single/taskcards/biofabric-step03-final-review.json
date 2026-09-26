@@ -1,0 +1,16 @@
+{
+  "schema": "project-task-card/v1",
+  "branch": "lane/biofabric-step03-final-review",
+  "base_commit": "cce2c14e6feab245d168950d0769b7669956cf47",
+  "task": "Perform a fresh, independent, read-only final review of the committed BioFabric STEP-03 layout implementation at the supplied commit. Review only these exact target files: crates/core/src/layout/build_data.rs, cluster.rs, control_top.rs, default.rs, hierarchy.rs, link_group.rs, result.rs, set.rs, similarity.rs, and world_bank.rs. Read AGENTS.md, public layout traits/types, and the nearby visible source tests needed to assess them. The acceptance contract is: fixed public types/traits/method signatures and manifests remain unchanged; deterministic valid node rows, regular/shadow columns, spans, grouping and annotations; correct extraction/fixed-order behavior; no empty-input panic; valid LayoutParams start-node/mode semantics; propagated cancellation; coherent default, similarity, hierarchy, cluster, control-top, set, and World Bank algorithms; and no stale layout metadata after reorder/compression. Inspect especially the corrective changes in similarity.rs, cluster.rs, and default.rs for regression or incomplete repair, but assess the whole target set for any remaining material defect. Cite file:line evidence, consequence, and smallest correction for every confirmed defect; distinguish questions/optional improvements. Do not write source/tests, format, stage, commit, use Docker, run Git, invoke a verifier, or inspect benchmark/results/operator-only paths. You may read source/test text only. Write ONLY RESULT.json. This is a mandatory detailed report: its summary MUST start exactly `REVIEW: SHIP`, `REVIEW: REVISE`, or `REVIEW: BLOCK`; its evidence array MUST contain, verbatim as separate entries, headings `Findings:`, `Contract coverage:`, `Questions:`, and `Verification gaps:` followed by substantive content. A generic outcome without this report is a failed deliverable. ROOT will use your report to accept/reject the source lane.",
+  "acceptance_criteria": [
+    "The review makes no source, test, fixture, manifest, lockfile, workflow, or Git changes; only RESULT.json may be written.",
+    "The report independently evaluates exactly the committed target layout files against fixed API, deterministic layout, column/span, extraction, parameter, cancellation, and edge-case contracts.",
+    "Every material finding gives file:line evidence, consequence, and smallest correction; questions and optional improvements are clearly separated.",
+    "RESULT.json begins with REVIEW: SHIP|REVISE|BLOCK and contains substantive Findings, Contract coverage, Questions, and Verification gaps entries in evidence."
+  ],
+  "deliverables": [
+    "A truthful, detailed independent review report in RESULT.json and no other worktree modifications."
+  ],
+  "reason_for_acceptance_and_deliverables": "The prior reviewer correctly requested revision but did not provide the specified evidence. This fresh reviewer validates the repaired custody commit before ROOT accepts a broad layout implementation that downstream alignment, parity, and CLI work depend on."
+}

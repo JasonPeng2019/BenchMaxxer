@@ -1,0 +1,14 @@
+{
+  "schema": "project-task-card/v1",
+  "task": "Resume the same isolated STEP-03 worktree, preserving all prior corrected compressed behavior. ROOT bridge has verified raw literals/all-predefined sequences now decode repetitive.zst and three public samples pass, but audio.wav.zst, img.bmp.zst, and video.mp4.zst still return zero. Audit the remaining RFC 8878 compressed literal and entropy-consumer paths: compressed/new-Huffman and treeless literal headers/tree parsing, one/four-stream decoding and bit consumption, FSE-compressed Huffman weights, custom and repeat sequence table parsing/retention. Correct only the direct cause(s), with strict payload/output bounds and without dictionary parsing. Do not alter protected files, planning/checkpoint files, prior verified reverse-bit/final-literal/LL=0 logic, or use Docker/Git/harness CLI/libzstd/another decompressor/sealed materials. The worker environment has no compiler, so reason from RFC/source and report checks honestly in RESULT.json.",
+  "acceptance_criteria": [
+    "The remaining Huffman literal forms and custom/repeat FSE consumers follow RFC 8878 framing, bit order, table retention, and exact stream-bound rules.",
+    "Validated prior raw-literal/predefined-sequence behavior is retained and only allowed decoder source changes.",
+    "RESULT.json truthfully states the specific diagnosis, edits, and unrun evidence."
+  ],
+  "deliverables": [
+    "A narrowly repaired src/zstd_decompress.c in the existing lane worktree.",
+    "An updated truthful result/v1 RESULT.json."
+  ],
+  "reason_for_acceptance_and_deliverables": "The visible regression is now narrowed to compressed-Huffman/custom entropy consumers after an independently bridged predefined FSE success."
+}

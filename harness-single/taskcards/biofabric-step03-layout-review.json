@@ -1,0 +1,16 @@
+{
+  "schema": "project-task-card/v1",
+  "branch": "lane/biofabric-step03-layout-review",
+  "base_commit": "92a5899ca989ee89fa7cedc40c8752b7c9fc9ff4",
+  "task": "Perform an independent, read-only review of the committed BioFabric STEP-03 core layout implementation at the supplied commit. Review only these exact target files: crates/core/src/layout/build_data.rs, cluster.rs, control_top.rs, default.rs, hierarchy.rs, link_group.rs, result.rs, set.rs, similarity.rs, and world_bank.rs. First read AGENTS.md, the public layout traits/types, and nearby visible source tests needed to assess the targets. Acceptance contract: preserve every existing public type/trait/method signature and manifest; keep source edits confined to the target layout files; deterministically produce valid node rows, link columns, shadow/non-shadow columns and spans, grouping/annotations, fixed-order and extraction behavior; preserve cancellation/progress behavior and explicit layout mode/start-node inputs; and provide coherent default, similarity, hierarchy, cluster, control-top, set, and World Bank layouts without panics or clear state corruption. Assess correctness, compatibility, hidden-edge behavior, ordering, shadow/self-loop handling, test strength, and verification gaps. Specifically inspect whether link grouping/column mapping/extraction annotations remain internally consistent, and whether special layout modes respect their documented parameters. Cite file:line evidence for every material defect, distinguish confirmed defects from questions or optional improvements, and do not make style-only/speculative findings. Do not edit, format, stage, commit, or otherwise change source; do not run Docker, any Git command, a verifier, or inspect benchmark/results/operator-only paths. You may read source/test text only. Write ONLY a truthful RESULT.json as the permitted artifact. Its summary must begin exactly with: REVIEW: SHIP | REVISE | BLOCK, followed by Findings, Contract coverage, Questions, and Verification gaps. ROOT will read your result and act on it.",
+  "acceptance_criteria": [
+    "The review is independent and read-only: no source, test, fixture, manifest, lockfile, workflow, or Git state changes are made; only RESULT.json may be written.",
+    "The review assesses the exact committed target files against fixed public API, deterministic layout, column/span, extraction, mode/parameter, cancellation, and source-test contracts.",
+    "Every material finding includes file-and-line evidence, consequence, and the smallest useful correction; questions and optional improvements are separated.",
+    "The result explicitly reports SHIP, REVISE, or BLOCK and clearly identifies verification gaps rather than claiming unperformed checks."
+  ],
+  "deliverables": [
+    "A truthful RESULT.json containing the required independent-review report and no other worktree modifications."
+  ],
+  "reason_for_acceptance_and_deliverables": "STEP-03 provides layout semantics to later session, alignment, parity-adapter, and CLI paths. Its broad implementation warrants a fresh read-only critique before ROOT accepts the lane, while keeping worker source ownership and isolation intact."
+}

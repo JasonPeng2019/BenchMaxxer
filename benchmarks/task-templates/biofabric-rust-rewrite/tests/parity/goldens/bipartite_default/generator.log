@@ -1,0 +1,8 @@
+BioFabric headless mode initialized.
+Loading: bipartite.sif (SIF)
+Network loaded and laid out successfully.
+Network: 6 nodes, 6 links (12 with shadows)
+  Wrote: /app/tests/parity/goldens/bipartite_default/output.noa
+  Wrote: /app/tests/parity/goldens/bipartite_default/output.eda
+  Wrote: /app/tests/parity/goldens/bipartite_default/output.bif
+Done. Golden files in: /app/tests/parity/goldens/bipartite_default

@@ -1,0 +1,15 @@
+{
+  "schema": "project-task-card/v1",
+  "branch": "lane/biofabric-step02-final-validation-review4",
+  "base_commit": "535da0117e20fd452da8eb4129e46c0809424467",
+  "task": "Perform a fresh, strictly read-only independent final validation review of BioFabric STEP-02 commit 535da0117e20fd452da8eb4129e46c0809424467. Do not edit, stage, commit, delete, or create source/test/manifests/workflow artifacts; do not invoke Docker, a verifier, or Git. Inspect the complete interchange implementation and adjacent model/session/layout/display/error contracts, focused on crates/core/src/io/xml.rs, sif.rs, gw.rs, align.rs, annotation.rs, attribute.rs, factory.rs, json.rs, and order.rs. Re-evaluate the full contract: deterministic lossless parse/write round trips wherever each format represents model state; malformed input yields ParseError rather than silently losing data; standard BIF annotations/drain zones/metadata/scores/raw plugin payloads/full DisplayOptions/named NetworkLayout state remain compatible; XML modeled elements are structurally legal inside exactly one BioFabric root; GW consumes complete records; and SIF never silently serializes fields its whitespace grammar cannot round-trip. Thoroughly audit the new modeled-XML tokenizer: compact adjacent tags, declarations immediately before root, same-line comments/PIs, XML Misc after root, malformed token/entity/quote handling, exactly-one-root enforcement, physical semantic state, and preserving deliberate opaque plugInDataSets content without adding or stripping payload lines. Verify that opaque comment/CDATA pseudo-NetAlignMeasure text cannot leak into alignment scores while genuine visible measures still parse. Examine all final GW comment/scalar/context fixes for regression. ROOT's pinned bridge rustfmt checks passed and cargo test -p biofabric-core --lib yielded 48 passed, with only the three known deferred alignment todo! stubs failing (cycle relation names, position codes, and position map); do not report those named stubs as STEP-02 defects. Produce truthful RESULT.json whose summary begins exactly REVIEW: SHIP, REVIEW: REVISE, or REVIEW: BLOCK and whose evidence contains all exact headings Findings:, Contract coverage:, Questions:, and Verification gaps:. Every confirmed material finding must give file:line, consequence, and smallest useful correction; keep questions/optional improvements separate. ROOT will decide source acceptance only after reading your report.",
+  "acceptance_criteria": [
+    "The review is independent and strictly read-only.",
+    "The report evaluates the whole interchange contract and especially final XML tokenization/plugin/SIF compatibility boundaries.",
+    "RESULT.json has the required REVIEW decision and four headings with file/line evidence for material findings."
+  ],
+  "deliverables": [
+    "A truthful detailed independent final STEP-02 interoperability review in RESULT.json."
+  ],
+  "reason_for_acceptance_and_deliverables": "The final XML/SIF interoperability correction passed pinned core checks and needs an independent final contract review before acceptance."
+}

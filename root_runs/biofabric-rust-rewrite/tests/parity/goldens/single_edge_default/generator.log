@@ -1,0 +1,8 @@
+BioFabric headless mode initialized.
+Loading: single_edge.sif (SIF)
+Network loaded and laid out successfully.
+Network: 2 nodes, 1 links (2 with shadows)
+  Wrote: /app/tests/parity/goldens/single_edge_default/output.noa
+  Wrote: /app/tests/parity/goldens/single_edge_default/output.eda
+  Wrote: /app/tests/parity/goldens/single_edge_default/output.bif
+Done. Golden files in: /app/tests/parity/goldens/single_edge_default

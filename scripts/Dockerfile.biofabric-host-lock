@@ -1,0 +1,8 @@
+# Operator-side compatibility layer for the pinned SWE-Marathon BioFabric image.
+# Build with root_runs/biofabric-rust-rewrite as context. Only Cargo.lock is
+# copied; the agent-visible starter and encrypted verifier stay in the base image.
+FROM swe-marathon-biofabric-rust-rewrite:lf-20260925@sha256:7371c89d8cda34360732ef8401ab301c78b72484dace66d4151e180d7fcd061c
+
+COPY Cargo.lock /app/Cargo.lock
+RUN CARGO_NET_OFFLINE=false cargo fetch --locked \
+    && CARGO_NET_OFFLINE=true cargo fetch --locked

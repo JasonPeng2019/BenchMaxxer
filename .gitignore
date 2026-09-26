@@ -1,0 +1,9 @@
+# Active ZSTD run; publish separately after it finishes.
+/root_runs/zstd-decoder/
+
+# Local run output and generated workspaces.
+/results/
+**/.harness-runtime/
+**/target/
+**/__pycache__/
+*.pyc

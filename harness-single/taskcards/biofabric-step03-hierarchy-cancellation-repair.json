@@ -1,0 +1,17 @@
+{
+  "schema": "project-task-card/v1",
+  "branch": "lane/biofabric-step03-core-layouts",
+  "base_commit": "ae335be6e6fa8bfe8c251f2f378f9f8083173e25",
+  "task": "Resume the rejected BioFabric STEP-03 lane in place. The lane already contains an eight-file uncommitted layout repair; preserve every existing repair exactly unless a change to hierarchy.rs is genuinely required. ROOT's pinned bridge ran cargo test -p biofabric-core --lib and found one unexpected failure: layout::hierarchy::tests::monitored_annotation_build_propagates_cancellation did not return LayoutError::Cancelled (39 passed, 4 failed total; the other three are known later-scope alignment todo! stubs). Make the smallest complete correction, limited to crates/core/src/layout/hierarchy.rs and its private in-module tests. The regression must deterministically demonstrate a cancellation after HierDAGLayout::layout_nodes has completed and while install_node_annotations_with_monitor is performing annotation work. Do not use a guessed fixed monitor-check threshold: use an explicit staged monitor, or derive the prior layout-node check count with a non-cancelling counter and set a threshold that necessarily reaches annotation work. Preserve real monitor propagation in all annotation loops; do not weaken or bypass cancellation merely to make a test pass. Do not modify public types, traits, manifests, lockfiles, fixtures, external tests, any other source path, Git metadata, or workflow artifacts. Do not invoke Docker, a verifier, or Git. Run focused non-Docker checks available to the worker and write a truthful RESULT.json listing exact changed paths, evidence, and any cache limitation. ROOT will run the authoritative bridge check and a fresh independent review.",
+  "acceptance_criteria": [
+    "Only crates/core/src/layout/hierarchy.rs is newly changed during this resume; all pre-existing uncommitted repairs in the other seven layout files remain intact.",
+    "The cancellation regression has a stable, phase-specific construction that cannot be satisfied by cancellation before annotation building.",
+    "install_node_annotations_with_monitor continues to return LayoutError::Cancelled on monitor cancellation and cannot produce a partial layout in that case.",
+    "RESULT.json truthfully reports changed paths, source checks, and any unavailable Cargo evidence."
+  ],
+  "deliverables": [
+    "A minimal hierarchy cancellation-test or helper correction.",
+    "A truthful RESULT.json."
+  ],
+  "reason_for_acceptance_and_deliverables": "The native worker completed a broad repair, but ROOT bridge validation exposed a non-deterministic or incorrectly calibrated new cancellation regression. This resume isolates that evidence-backed defect before a new validation pass."
+}

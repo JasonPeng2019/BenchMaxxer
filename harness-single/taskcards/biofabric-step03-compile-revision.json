@@ -1,0 +1,17 @@
+{
+  "schema": "project-task-card/v1",
+  "branch": "lane/biofabric-step03-core-layouts",
+  "base_commit": "0573a459dcb2593276a48830f55c6d98d6e55e57",
+  "task": "Resume STEP-03 only to repair the confirmed compilation failure in the existing lane work. Retain valid layout implementation and edit only crates/core/src/layout/**. Do not edit public types/signatures, Cargo manifests/lockfile, model/I-O/alignment/CLI source, protected tests, fixtures, goldens, workflow files, or any path outside the layout tree. Do not use Docker, Git add/commit, a verifier, benchmark/results paths, or operator-only runtime paths. ROOT's pinned bridge compiled the lane and found six E0425 errors introduced by this work: crates/core/src/layout/default.rs declares _monitor then references monitor in default_order and layout; crates/core/src/layout/world_bank.rs declares _monitor and _params then references monitor and params in node_order. Correct those parameter bindings without changing the fixed public signatures or silently disabling cancellation/progress/start-node behavior. Then inspect the whole owned diff for analogous renamed-but-referenced bindings and any local compile errors surfaced after fixing these. Preserve the original source-module tests; add a narrow test only if necessary to protect observable cancellation/start-node behavior, otherwise do not expand scope merely to test a spelling repair. Attempt the strongest non-Docker local compile/test evidence the sandbox allows and record the exact command/result; ROOT will repeat the authoritative bridge check. Leave all allowed edits and a truthful RESULT.json listing changed paths, checks actually run, remaining errors/uncertainty, and blockers.",
+  "acceptance_criteria": [
+    "Every edit remains under crates/core/src/layout/** and no fixed public signature, manifest/lockfile, protected test, fixture, golden, or unrelated source changes occur.",
+    "The named default and World Bank paths correctly use their supplied ProgressMonitor and LayoutParams bindings, preserving cancellation/progress and start-node semantics.",
+    "No analogous unbound renamed parameter references remain in the owned layout diff, and RESULT.json truthfully reports actual verification rather than a presumed pass.",
+    "RESULT.json lists the focused repair, edited paths, checks actually run, remaining uncertainty, and blockers."
+  ],
+  "deliverables": [
+    "A focused compilable repair under crates/core/src/layout/**.",
+    "A truthful RESULT.json in the lane worktree."
+  ],
+  "reason_for_acceptance_and_deliverables": "The STEP-03 lane is structurally in scope but cannot advance while its owned code does not compile. A bounded resume preserves valid layout work and repairs the smallest blocking dependency before independent review."
+}

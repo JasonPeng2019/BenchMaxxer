@@ -1,0 +1,9 @@
+BioFabric headless mode initialized.
+Set nodeLighterLevel = 0.0
+Loading: triangle.sif (SIF)
+Network loaded and laid out successfully.
+Network: 3 nodes, 3 links (6 with shadows)
+  Wrote: /app/tests/parity/goldens/triangle_lighter0/output.noa
+  Wrote: /app/tests/parity/goldens/triangle_lighter0/output.eda
+  Wrote: /app/tests/parity/goldens/triangle_lighter0/output.bif
+Done. Golden files in: /app/tests/parity/goldens/triangle_lighter0

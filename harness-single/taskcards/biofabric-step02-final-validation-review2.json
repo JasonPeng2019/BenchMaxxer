@@ -1,0 +1,15 @@
+{
+  "schema": "project-task-card/v1",
+  "branch": "lane/biofabric-step02-final-validation-review2",
+  "base_commit": "1c37d1e192d2bdc9d224229dfa66e5353ef2ef6f",
+  "task": "Perform a fresh, read-only independent validation review of BioFabric STEP-02 commit 1c37d1e192d2bdc9d224229dfa66e5353ef2ef6f. Do not edit, stage, commit, delete, or create source/test/manifests/workflow artifacts; do not invoke Docker, a verifier, or Git. Inspect the interchange implementation and nearby model/session/layout/display/error contracts, with focus on crates/core/src/io/xml.rs and gw.rs and regression risk across align.rs, annotation.rs, attribute.rs, factory.rs, json.rs, order.rs, and sif.rs. The contract includes lossless, deterministic parse/write round trips where the format can represent model state; malformed input must yield ParseError rather than silently losing data; standard BIF annotations/drain zones/metadata/scores/raw plugin payloads must remain compatible; full public DisplayOptions and named NetworkLayout state must round-trip; XML modeled elements must be structurally legal inside exactly one BioFabric root; and GW records must be fully consumed. Specifically assess compatibility of the new XML state representation, root/parent state tracking, opaque plugin boundaries, escaped/non-ASCII field values, external valid BIF linkGroups, and legitimate GW grammar variants. The ROOT pinned bridge compiled this commit and ran cargo test -p biofabric-core --lib: 40 passed; only the three known deferred alignment todo! stubs failed. Do not treat those named stubs as STEP-02 defects. Produce truthful RESULT.json whose summary begins exactly `REVIEW: SHIP`, `REVIEW: REVISE`, or `REVIEW: BLOCK`, and whose evidence contains all exact headings `Findings:`, `Contract coverage:`, `Questions:`, and `Verification gaps:`. Every confirmed material finding must cite file:line, consequence, and smallest useful correction; keep questions/optional improvements separate. ROOT will decide acceptance only after reading your report.",
+  "acceptance_criteria": [
+    "The review is independent and strictly read-only.",
+    "The report evaluates all stated interchange contracts and compatibility boundaries, especially repaired XML/GW behavior.",
+    "The RESULT.json has the required REVIEW decision and four headings with file/line evidence for material findings."
+  ],
+  "deliverables": [
+    "A truthful detailed independent I/O review in RESULT.json."
+  ],
+  "reason_for_acceptance_and_deliverables": "The broad XML/GW repair passed its focused pinned bridge checks after a root-context correction and must receive a fresh independent compatibility review before acceptance."
+}

@@ -1,0 +1,12 @@
+BioFabric headless mode initialized.
+Loading: triangle.sif (SIF)
+Network loaded and laid out successfully.
+Network: 3 nodes, 3 links (6 with shadows)
+Running graph analysis...
+  Computing node degrees...
+    Wrote: /app/tests/parity/goldens/analysis_degree_triangle/output.degrees (3 nodes)
+  Analysis complete.
+  Wrote: /app/tests/parity/goldens/analysis_degree_triangle/output.noa
+  Wrote: /app/tests/parity/goldens/analysis_degree_triangle/output.eda
+  Wrote: /app/tests/parity/goldens/analysis_degree_triangle/output.bif
+Done. Golden files in: /app/tests/parity/goldens/analysis_degree_triangle

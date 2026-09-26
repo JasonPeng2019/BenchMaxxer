@@ -1,0 +1,17 @@
+{
+  "schema": "project-task-card/v1",
+  "branch": "lane/biofabric-step03-core-layouts",
+  "base_commit": "ae335be6e6fa8bfe8c251f2f378f9f8083173e25",
+  "task": "Repair the current rejected BioFabric STEP-03 layout custody commit in place. You own only crates/core/src/layout/build_data.rs, cluster.rs, control_top.rs, default.rs, hierarchy.rs, link_group.rs, similarity.rs, and set.rs, including their existing private source-module tests. Do not edit public types/traits/signatures, manifests, lockfiles, fixtures, external tests, other source paths, Git metadata, or workflow artifacts. Preserve all already-repaired behavior (duplicate set/control rows, parallel DAG arcs, compact columns, BFS adjacency, hub/spoke grouping, link-group ordering, empty input, and GrayCode unbounded safety). Make the smallest complete evidence-backed corrections: (1) layout_from_fixed_link_order must not emit duplicate node rows or noncontiguous/out-of-range row metadata from duplicate input NodeIds; retain first-occurrence deterministic order; (2) TargetOrder::GrayCode must order by the standard unbounded binary-reflected Gray-code key, not raw membership bits, while retaining control index 0 as the least-significant input bit and arbitrary-length safety; add a regression covering all four two-control signatures; (3) cancellation must propagate through material nested scans: link-group building used by DefaultEdgeLayout, similarity candidate/neighborhood scans, hierarchy annotation construction, and control-top score/order preparation; do not hide long scans inside unchecked sort comparators or closures; (4) valid LayoutParams.start_node must deterministically anchor cluster, control-top, and set node orders as it already does in other layouts, without introducing duplicates. Use private fallible/monitor-aware helpers or compatibility wrappers as needed without changing public API. Add focused private source-module regression tests for every repair where practical. Run only focused non-Docker source checks available to the worker; do not invoke Docker, a verifier, or Git. Write a truthful RESULT.json with exact paths, test results, and remaining uncertainty. ROOT will rerun bridge checks and get a fresh independent review before acceptance.",
+  "acceptance_criteria": [
+    "Only the eight named layout source files and their existing in-file tests are modified; public APIs and protected paths remain unchanged.",
+    "Fixed-order layouts produce unique contiguous rows; GrayCode follows binary-reflected semantics for normal and arbitrary-length control lists; and valid start anchors are honored by every affected node layout.",
+    "Cancellation can return LayoutError::Cancelled during all named material nested scans, not merely before or after them.",
+    "Focused source-module regressions cover the repaired behavior where practical, and RESULT.json truthfully reports evidence and limitations."
+  ],
+  "deliverables": [
+    "Scoped layout correctness/cancellation repairs with focused in-module regression tests.",
+    "A truthful RESULT.json with changed paths, verification, and remaining uncertainty."
+  ],
+  "reason_for_acceptance_and_deliverables": "A fresh independent review found seven remaining material correctness, parameter, and cancellation defects in the repaired layout commit. This resume is limited to those evidence-backed findings before another bridge check and review."
+}

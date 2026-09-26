@@ -1,0 +1,15 @@
+Link Column
+L6 (pd) L7 = 0
+L6 shdw(pd) L7 = 1
+L5 (pd) L6 = 2
+L5 shdw(pd) L6 = 3
+L4 (pd) L5 = 4
+L4 shdw(pd) L5 = 5
+L3 (pd) L4 = 6
+L3 shdw(pd) L4 = 7
+L2 (pd) L3 = 8
+L2 shdw(pd) L3 = 9
+L1 (pd) L2 = 10
+L1 shdw(pd) L2 = 11
+L0 (pd) L1 = 12
+L0 shdw(pd) L1 = 13

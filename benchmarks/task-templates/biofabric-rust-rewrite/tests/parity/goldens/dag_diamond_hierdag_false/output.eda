@@ -1,0 +1,9 @@
+Link Column
+Top (pd) Right = 0
+Top (pd) Left = 1
+Top shdw(pd) Right = 2
+Right (pd) Bottom = 3
+Top shdw(pd) Left = 4
+Left (pd) Bottom = 5
+Right shdw(pd) Bottom = 6
+Left shdw(pd) Bottom = 7

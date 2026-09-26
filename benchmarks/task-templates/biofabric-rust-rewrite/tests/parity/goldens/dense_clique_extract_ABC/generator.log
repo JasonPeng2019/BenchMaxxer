@@ -1,0 +1,10 @@
+BioFabric headless mode initialized.
+Loading: dense_clique.sif (SIF)
+Network loaded and laid out successfully.
+Network: 6 nodes, 15 links (30 with shadows)
+Extracting subnetwork for nodes: [A, B, C]
+  Subnetwork extracted: 3 nodes, 3 links
+  Wrote: /app/tests/parity/goldens/dense_clique_extract_ABC/output.noa
+  Wrote: /app/tests/parity/goldens/dense_clique_extract_ABC/output.eda
+  Wrote: /app/tests/parity/goldens/dense_clique_extract_ABC/output.bif
+Done. Golden files in: /app/tests/parity/goldens/dense_clique_extract_ABC

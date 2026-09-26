@@ -1,0 +1,16 @@
+{
+  "schema": "project-task-card/v1",
+  "branch": "lane/biofabric-step01-repair-review",
+  "base_commit": "26b825b5491bbd5774d3b0709681f826bdd7582f",
+  "task": "Perform a fresh, read-only review of the final corrective delta for BioFabric STEP-01. Review crates/core/src/model/network.rs at the supplied commit, concentrating on the recently repaired Network derived-state behavior and its source-module tests. Read nearby public model/analysis definitions and tests needed for correctness. The target contract: preserve every existing public type/trait/method signature; ordinary add_node and add_node_by_id must maintain lone_nodes as the current edgeless-node set without re-adding connected nodes; the existing links_mut signature must remain unchanged and its documented existing reconciliation route must restore adjacency, lone nodes, directed metadata, and bipartite/DAG state after raw link-vector mutation; extract_subnetwork must preserve only name/description provenance and derive structural metadata from retained graph data. Check that the reconciliation route itself has no recursion/staleness/regression problem, that tests genuinely exercise the three contracts, and that no hidden edge is clearly violated. Assess exact target behavior, compatibility, tests, and verification gaps; cite file:line evidence for any material defect. Do not edit, format, stage, commit, use Docker, run any Git command, invoke a verifier, or inspect benchmark/results/operator-only paths. Write ONLY a truthful RESULT.json. Its summary must begin exactly with REVIEW: SHIP | REVISE | BLOCK, then Findings, Contract coverage, Questions, and Verification gaps. ROOT will act on the result.",
+  "acceptance_criteria": [
+    "The review is read-only and leaves no source, test, fixture, manifest, lockfile, or Git state modifications; only RESULT.json may be written.",
+    "The review independently evaluates the final Network corrective behavior against all three stated derived-state invariants and fixed public API requirement.",
+    "Each material finding gives file-and-line evidence, consequence, and smallest correction; questions and verification gaps are explicit.",
+    "RESULT.json clearly reports REVIEW: SHIP, REVISE, or BLOCK."
+  ],
+  "deliverables": [
+    "A truthful independent review report in RESULT.json and no other worktree modifications."
+  ],
+  "reason_for_acceptance_and_deliverables": "The repair changes the shared Network reconciliation contract after an earlier independent review identified material defects. A fresh targeted critique validates the correction before ROOT accepts the source lane and permits dependent implementation steps."
+}

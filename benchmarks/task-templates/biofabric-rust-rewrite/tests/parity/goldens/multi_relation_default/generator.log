@@ -1,0 +1,8 @@
+BioFabric headless mode initialized.
+Loading: multi_relation.sif (SIF)
+Network loaded and laid out successfully.
+Network: 5 nodes, 6 links (12 with shadows)
+  Wrote: /app/tests/parity/goldens/multi_relation_default/output.noa
+  Wrote: /app/tests/parity/goldens/multi_relation_default/output.eda
+  Wrote: /app/tests/parity/goldens/multi_relation_default/output.bif
+Done. Golden files in: /app/tests/parity/goldens/multi_relation_default

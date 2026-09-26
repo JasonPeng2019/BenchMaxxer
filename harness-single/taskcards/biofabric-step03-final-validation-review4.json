@@ -1,0 +1,15 @@
+{
+  "schema": "project-task-card/v1",
+  "branch": "lane/biofabric-step03-final-validation-review4",
+  "base_commit": "7c92bab17cea2869f9cf2634bca85dcf863e6a99",
+  "task": "Perform a fresh, strictly read-only independent final validation review of BioFabric STEP-03 commit 7c92bab17cea2869f9cf2634bca85dcf863e6a99. Do not edit, stage, commit, delete, or create source/test/manifests/workflow artifacts; do not invoke Docker, a verifier, or Git. Inspect all relevant layout code and directly adjacent types/tests in crates/core/src/layout/build_data.rs, cluster.rs, control_top.rs, default.rs, hierarchy.rs, link_group.rs, set.rs, and similarity.rs. Re-evaluate the full contract: unique contiguous fixed-import rows; arbitrary-length binary-reflected GrayCode with control 0 as LSB; valid start_node anchors in all named layouts; exact configured relation grouping; hierarchy criteria/DAG validation semantics; and cancellation propagation as LayoutError::Cancelled through every material pre-, during-, and post-DefaultEdgeLayout scan in every affected edge-layout wrapper, without returning a completed partial result. Explicitly trace each impl EdgeLayout and every post-default mutation/reordering/annotation/span loop, including empty-input paths. In HierDAG specifically, confirm that the private monitor-aware criteria/DAG helpers preserve the public criteria_met behavior, recognize ordinary valid DAGs, ignore shadow/undirected links consistently with the established analysis, and that a valid start_node anchors output without silently dropping nodes. Confirm public compatibility and no unintended semantics regression. ROOT's pinned bridge rustfmt check passed and cargo test -p biofabric-core --lib yielded 48 passed, with only the three named deferred alignment todo! stubs failing (cycle relation names, position codes, and position map); do not report those as STEP-03 findings. Produce a truthful RESULT.json whose summary begins exactly REVIEW: SHIP, REVIEW: REVISE, or REVIEW: BLOCK and whose evidence includes all exact headings Findings:, Contract coverage:, Questions:, and Verification gaps:. Every confirmed material finding must cite file:line, impact, and smallest correction; distinguish optional ideas. ROOT will only accept after reviewing this report.",
+  "acceptance_criteria": [
+    "The review is independent and strictly read-only.",
+    "The report traces every affected EdgeLayout wrapper, post-default scan, HierDAG helper, and stated correctness contract.",
+    "RESULT.json uses the required REVIEW decision and four headings with evidence for any material finding."
+  ],
+  "deliverables": [
+    "A truthful, comprehensive independent STEP-03 review in RESULT.json."
+  ],
+  "reason_for_acceptance_and_deliverables": "The completed HierDAG contract repair passed the pinned bridge and needs an independent final regression review before acceptance."
+}

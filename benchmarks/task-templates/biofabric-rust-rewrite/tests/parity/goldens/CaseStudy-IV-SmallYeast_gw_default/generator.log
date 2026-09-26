@@ -1,0 +1,8 @@
+BioFabric headless mode initialized.
+Loading: CaseStudy-IV-SmallYeast.gw (GW)
+Network loaded and laid out successfully.
+Network: 1004 nodes, 8323 links (16646 with shadows)
+  Wrote: /app/tests/parity/goldens/CaseStudy-IV-SmallYeast_gw_default/output.noa
+  Wrote: /app/tests/parity/goldens/CaseStudy-IV-SmallYeast_gw_default/output.eda
+  Wrote: /app/tests/parity/goldens/CaseStudy-IV-SmallYeast_gw_default/output.bif
+Done. Golden files in: /app/tests/parity/goldens/CaseStudy-IV-SmallYeast_gw_default

@@ -1,0 +1,10 @@
+BioFabric headless mode initialized.
+Loading: disconnected_components.sif (SIF)
+Network loaded and laid out successfully.
+Network: 11 nodes, 8 links (16 with shadows)
+Applying --no-shadows: toggling shadow display OFF...
+  Shadow toggle rebuild complete. Links now: 8 (no shadows)
+  Wrote: /app/tests/parity/goldens/disconnected_components_noshadow/output.noa
+  Wrote: /app/tests/parity/goldens/disconnected_components_noshadow/output.eda
+  Wrote: /app/tests/parity/goldens/disconnected_components_noshadow/output.bif
+Done. Golden files in: /app/tests/parity/goldens/disconnected_components_noshadow

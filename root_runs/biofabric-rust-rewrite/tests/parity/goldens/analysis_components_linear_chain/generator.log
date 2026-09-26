@@ -1,0 +1,12 @@
+BioFabric headless mode initialized.
+Loading: linear_chain.sif (SIF)
+Network loaded and laid out successfully.
+Network: 10 nodes, 9 links (18 with shadows)
+Running graph analysis...
+  Computing connected components...
+    Wrote: /app/tests/parity/goldens/analysis_components_linear_chain/output.components (1 components)
+  Analysis complete.
+  Wrote: /app/tests/parity/goldens/analysis_components_linear_chain/output.noa
+  Wrote: /app/tests/parity/goldens/analysis_components_linear_chain/output.eda
+  Wrote: /app/tests/parity/goldens/analysis_components_linear_chain/output.bif
+Done. Golden files in: /app/tests/parity/goldens/analysis_components_linear_chain

@@ -1,0 +1,19 @@
+{
+  "schema": "project-task-card/v1",
+  "branch": "lane/biofabric-step02-network-interchange",
+  "base_commit": "0573a459dcb2593276a48830f55c6d98d6e55e57",
+  "task": "Implement STEP-02 of the BioFabric Rust rewrite: make the complete fixed network/session interchange path operational. You own only crates/core/src/io/**. Preserve all existing public types, traits, method signatures, Cargo manifests/lockfile, model/layout/alignment/CLI source, protected tests, fixtures, goldens, and workflow files. Do not use Docker, Git add/commit, a verifier, benchmark/results paths, or operator-only runtime paths. Implement only from visible source/tests/fixtures and fixed APIs: deterministic SIF, GW, JSON, .align, node/link order, attribute, annotation, color/display-option, XML/session parser/writer behavior; correct FabricFactory extension detection and dispatch; session layout/display/alignment/plugin-data preservation; and fixed ParseError/ImportStats behavior for malformed, missing, or unsupported inputs. Keep parser state local until success, preserve input/insertion ordering at output boundaries, and do not invent alternate format contracts. Use test-first where a narrow source-module test can express an observable parser/roundtrip/failure contract: add tests only inside owned source modules, record actual red/green evidence if runnable, and do not modify existing protected tests. Read visible fixtures and relevant callers before choosing format details. Do not edit later layout/alignment implementations when a consumer is incomplete; report any such ambiguity in RESULT.json. Leave all allowed source edits and a truthful RESULT.json for ROOT; ROOT will run pinned bridge checks after exit.",
+  "acceptance_criteria": [
+    "Every edit is confined to crates/core/src/io/**, with new tests confined to owned source modules; no public API or manifest/lockfile change occurs.",
+    "FabricFactory routes only supported extensions and returns the fixed ParseError path for unsupported/malformed sources.",
+    "SIF, GW, JSON, .align, node/link order, attributes, annotations, color/display options, and session/XML operations preserve supported data, ordering, special links/nodes, and fixed error semantics visible in source/tests/fixtures.",
+    "Session load/save preserves network plus supported optional layout, display, alignment, metadata, and raw plugin-data state needed by the fixed Session representation.",
+    "Each added source-module test protects a concrete observable behavior, and RESULT.json accurately lists edited paths, checks actually run, remaining uncertainty, and blockers."
+  ],
+  "deliverables": [
+    "Completed implementation under crates/core/src/io/** for the fixed interchange surface.",
+    "Narrow source-module tests for chosen parser, factory, or session contracts where useful.",
+    "A truthful RESULT.json in the lane worktree."
+  ],
+  "reason_for_acceptance_and_deliverables": "STEP-02 is the single fixed format-routing and session boundary consumed by later layout, alignment, parity-adapter, and CLI steps. One owner across the interdependent I/O modules avoids incompatible parsing or serialization semantics while its source path remains disjoint from STEP-03 layouts."
+}
