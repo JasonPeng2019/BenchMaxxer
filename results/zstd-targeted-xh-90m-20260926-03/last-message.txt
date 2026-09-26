@@ -1,0 +1,15 @@
+Implemented and froze the C99 decoder at `6ca8a8d8f8b8d5107e63e736779d75b919ae3021`.
+
+- Final deterministic bridge build/test: 6/6 passed, byte-identical. [public-007.txt](/C:/Users/Jason/Documents/Jason/Orchestrator_Harness-Bench-Testing/root_runs/zstd-decoder-validated-90m/progress/public-007.txt)
+- Final factual record: [review-006.json](/C:/Users/Jason/Documents/Jason/Orchestrator_Harness-Bench-Testing/root_runs/zstd-decoder-validated-90m/progress/review-006.json)
+- Decoder: [zstd_decompress.c](/C:/Users/Jason/Documents/Jason/Orchestrator_Harness-Bench-Testing/root_runs/zstd-decoder-validated-90m/src/zstd_decompress.c)
+
+Native-worker outcomes:
+
+- Max core worker: procedural result rejected (uncommitted/unbuildable lane), but its validated decoder candidate was integrated.
+- High fresh validation worker: accepted as the mandatory independent audit; its proposed reverse-bit repair was rejected after it regressed `repetitive.zst`.
+- Max focused repair worker: procedural result rejected for the same lane Git limitation; its Huffman FSE-tail repair was integrated and produced the 6/6 result.
+
+The native runtime was cooperatively shut down and verified closed (`SCAN_NO_ACTIVE_EPOCH`). Elapsed working interval: about 46 minutes.
+
+No known functional gaps remain in the implemented RFC paths. The compiler emits non-fatal misleading-indentation warnings; public coverage is fully green but is not exhaustive proof of every possible malformed or trained-dictionary input.

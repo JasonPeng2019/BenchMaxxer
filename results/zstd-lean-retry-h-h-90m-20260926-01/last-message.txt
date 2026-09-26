@@ -1,0 +1,10 @@
+Implemented and froze partial decoder revision `45b41f6`.
+
+Public bridge post-review check: 5/6 passed.
+
+- Pass: audio, BMP, PNG, repetitive, simple
+- Fails: video (final compressed block’s Huffman/FSE weight reconstruction; output is short by 8,648 bytes)
+
+Fresh validator `late-video-validator-03` was accepted after identifying the RFC 8878 §4.2.2 exact-consumption violation in the sixth video block’s four Huffman streams. ROOT reran build/public tests afterward.
+
+Other lane findings improved custom FSE threshold handling, four-stream header parsing, and Huffman terminal-state ordering. Native runtime is closed; all lanes retired. Elapsed wall time: ~41 minutes.

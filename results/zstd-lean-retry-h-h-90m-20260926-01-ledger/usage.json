@@ -1,0 +1,25 @@
+{
+  "active_elapsed_seconds": 2407.531,
+  "aggregate_components": {
+    "cached_input_tokens": 28406016,
+    "input_tokens": 28999363,
+    "output_tokens": 139992,
+    "reasoning_output_tokens": 56562,
+    "reported_total_tokens": null
+  },
+  "arm": "harness",
+  "budget_tokens": null,
+  "errors": [],
+  "in_flight_invocations": 0,
+  "interruption_policy": null,
+  "known_total_tokens": 29139355,
+  "overshoot_tokens": null,
+  "paused_wall_seconds": 0.0,
+  "remaining_tokens": null,
+  "resume_count": 0,
+  "run_id": "zstd-lean-retry-h-h-90m-20260926-01",
+  "schema": "codex-token-ledger/v1",
+  "task": "zstd-decoder",
+  "token_total_is_exact": true,
+  "unknown_usage_invocations": 0
+}

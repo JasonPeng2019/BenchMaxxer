@@ -1,0 +1,9 @@
+{
+  "arm": "harness",
+  "budget_tokens": null,
+  "harness_runtime": "C:\\Users\\Jason\\Documents\\Jason\\Orchestrator_Harness-Bench-Testing\\root_runs\\zstd-decoder-lean-90m\\.harness-runtime",
+  "root_run_dir": "C:\\Users\\Jason\\Documents\\Jason\\Orchestrator_Harness-Bench-Testing\\results\\zstd-lean-h-h-90m-20260926-03",
+  "run_id": "zstd-lean-h-h-90m-20260926-03",
+  "schema": "codex-token-task/v1",
+  "task": "zstd-decoder"
+}

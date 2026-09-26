@@ -1,0 +1,11 @@
+{
+    "public_passed": 5,
+    "public_failed": 1,
+    "public_total": 6,
+    "hidden_passed": 25,
+    "hidden_failed": 12,
+    "hidden_total": 37,
+    "total_passed": 30,
+    "total_tests": 43,
+    "partial_score": 0.698
+}

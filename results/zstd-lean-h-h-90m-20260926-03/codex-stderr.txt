@@ -1,0 +1,3 @@
+2026-09-26T18:27:13.628780Z ERROR codex_core::tools::router: error=apply_patch verification failed: invalid patch: multiple operations target C:\Users\Jason\Documents\Jason\Orchestrator_Harness-Bench-Testing\root_runs\zstd-decoder-lean-90m\src\zstd_decompress.c
+2026-09-26T18:30:40.193387Z ERROR codex_core::tools::router: error=apply_patch verification failed: Failed to find expected lines in C:\Users\Jason\Documents\Jason\Orchestrator_Harness-Bench-Testing\root_runs\zstd-decoder-lean-90m\src\zstd_decompress.c:
+static int block(C*c,const u8*p,const u8*e){u8*l;size_t ln,li=0;int ns,lm,om,mm,i;FB b;RB r;if(!lits(c,&p,e,&l,&ln))return 0;

@@ -1,0 +1,7 @@
+Partial candidate frozen at `50e41aa95be2bbf876db5d879921541e3ebd6dfd`.
+
+- Public checks after validator review: build succeeds; 2/6 pass (`simple`, `img.png`). Compressed entropy fixtures fail.
+- Validator `zstd-validator` independently found the 4-byte Frame_Content_Size little-endian bug in `ZSTD_get_decompressed_size`; I accepted it, fixed it, and reran deterministic public checks.
+- No other workers were used.
+- Remaining gaps: compressed-block entropy decoding is not correct; FSE-compressed Huffman headers, robust Huffman/FSE streams, repeat tables, checksums, and trained dictionaries are not complete.
+- Native harness validation was completed and the runtime closed cleanly. Elapsed live harness time was about 9 minutes.
